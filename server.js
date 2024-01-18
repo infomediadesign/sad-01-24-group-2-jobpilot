@@ -1,5 +1,5 @@
 const app = require('./app');
-const { logger } = require('./util/logging');
+const { logger } = require('./middleware/logging');
 const dbService = require('./db/dbconfig/db');
 
 app.listen(process.env.PORT, () => {
