@@ -1,7 +1,7 @@
 import React from 'react';
-import appLogo from '../assets/logoName.png'; // Adjust the path as needed
-import profilePic from '../assets/logoElement.png'; // Adjust the path as needed
-import '../styles/Header.css';
+import appLogo from '../../assets/logoName.png'; // Adjust the path as needed
+import profilePic from '../../assets/logoElement.png'; // Adjust the path as needed
+import '../../styles/Header.css';
 
 const Header = ({ onSelection, currentPage }) => {
   const isCurrentPage = (pageName) => currentPage === pageName;
