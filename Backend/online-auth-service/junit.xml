@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="2" failures="0" errors="0" time="5.505">
+  <testsuite name="GET /api/auth/register" errors="0" failures="0" skipped="0" timestamp="2024-01-18T22:29:32" time="5.368" tests="2">
+    <testcase classname="GET /api/auth/register api to return 201 created response" name="GET /api/auth/register api to return 201 created response" time="0.006">
+    </testcase>
+    <testcase classname="GET /api/auth/register api to return 400 bad request response" name="GET /api/auth/register api to return 400 bad request response" time="0.001">
+    </testcase>
+  </testsuite>
+</testsuites>
