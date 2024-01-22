@@ -1,22 +1,26 @@
 const { Router } = require('express');
+const passport = require('passport');
 const { validationResult, body } = require('express-validator');
 const { logger } = require('../middleware/logging');
 const { saveRegisteredUsers, checkUserExists } = require('../services/auth.services');
-
+const { useOauthPassport } = require('../middleware/google.auth');
+ 
 const router = new Router();
-
+ 
+useOauthPassport(passport);
+ 
 const validateRequiredFields = [
     body('user.firstname').notEmpty().withMessage('First name is required.'),
     body('user.lastname').notEmpty().withMessage('Last name is required.'),
     body('user.email').notEmpty().isEmail().withMessage('Valid email is required.'),
     body('user.password').notEmpty().withMessage('Password is required.'),
 ];
-
+ 
 router.post('/register', validateRequiredFields, async (req, res) => {
     try {
         logger.info(`Entering ${req.baseUrl}${req.path}`);
         const validationErrors = validationResult(req);
-
+ 
         if (!validationErrors.isEmpty()) {
             const erroMessage = validationErrors.array();
             return res.status(400).json({
@@ -56,5 +60,20 @@ router.post('/register', validateRequiredFields, async (req, res) => {
         });
     }
 });
-
+ 
+router.get(
+    '/google',
+    passport.authenticate('google', {
+        scope: ['profile', 'email'],
+    })
+);
+ 
+router.get(
+    '/google/callback',
+    passport.authenticate('google', {
+        failureRedirect: '/',
+        successRedirect: '/success',
+    })
+);
+ 
 module.exports = router;
