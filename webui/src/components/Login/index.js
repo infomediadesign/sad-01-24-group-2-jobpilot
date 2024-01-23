@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, NavLink } from "react-router-dom";
-import '../../styles/loginIndex.css';  // Import the stylesheet
+import '../../styles/Login/loginIndex.css';  // Import the stylesheet
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from "jwt-decode";
