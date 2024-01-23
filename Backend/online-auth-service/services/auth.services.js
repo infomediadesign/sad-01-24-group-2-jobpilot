@@ -1,11 +1,10 @@
-const UserModel = require('../db/model/schema');
+const { UserModel, IdentityTokenModel } = require('../db/model/schema');
 const bcrypt = require('bcrypt');
 const { MongoClient, ObjectId } = require('mongodb');
 const { logger } = require('../middleware/logging');
 
 const saveRegisteredUsers = async user => {
     try {
-        console.log("user----------->",user)
         if (user?.password) {
             const saltRounds = 10;
             const salt = await bcrypt.genSalt(saltRounds);
@@ -13,14 +12,11 @@ const saveRegisteredUsers = async user => {
         }
         const saveUser = new UserModel({ user });
         await saveUser.save();
-        console.log("saveUser----------->",saveUser)
         return saveUser;
-    
     } catch (err) {
         logger.error(`Error while saving Registered Users: ` + err);
     }
 };
- 
 
 const checkUserExists = async email => {
     try {
@@ -31,6 +27,29 @@ const checkUserExists = async email => {
     }
 };
 
+const checkIsValidPassword = async (email, password) => {
+    try {
+        const userData = await UserModel.findOne({ 'user.email': email });
+        if (userData && bcrypt.compareSync(password, userData.user.password)) {
+            return true;
+        }
+    } catch (err) {
+        logger.error(`Error while checking valid password: ` + err);
+    }
+};
 
+const getClientIdentityTokens = async () => {
+    try {
+        const clientData = await IdentityTokenModel.findOne({});
+        return clientData;
+    } catch (err) {
+        logger.error(`Error while getting client identity tokens: ` + err);
+    }
+};
 
-module.exports = { saveRegisteredUsers, checkUserExists };
+module.exports = {
+    saveRegisteredUsers,
+    checkUserExists,
+    checkIsValidPassword,
+    getClientIdentityTokens,
+};
