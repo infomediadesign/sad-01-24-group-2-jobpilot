@@ -1,18 +1,28 @@
 const { Router } = require('express');
 const { validationResult, body } = require('express-validator');
 const { logger } = require('../middleware/logging');
-const { saveRegisteredUsers, checkUserExists } = require('../services/auth.services');
+const {
+    saveRegisteredUsers,
+    checkUserExists,
+    checkIsValidPassword,
+} = require('../services/auth.services');
+const { generateJwtToken } = require('../middleware/jwt.auth');
 
 const router = new Router();
 
-const validateRequiredFields = [
+const validateRegisterRequiredFields = [
     body('user.firstname').notEmpty().withMessage('First name is required.'),
     body('user.lastname').notEmpty().withMessage('Last name is required.'),
     body('user.email').notEmpty().isEmail().withMessage('Valid email is required.'),
     body('user.password').notEmpty().withMessage('Password is required.'),
 ];
 
-router.post('/register', validateRequiredFields, async (req, res) => {
+const validateLoginRequiredFields = [
+    body('email').notEmpty().isEmail().withMessage('Valid email is required.'),
+    body('password').notEmpty().withMessage('Password is required.'),
+];
+
+router.post('/register', validateRegisterRequiredFields, async (req, res) => {
     try {
         logger.info(`Entering ${req.baseUrl}${req.path}`);
         const validationErrors = validationResult(req);
@@ -44,6 +54,48 @@ router.post('/register', validateRequiredFields, async (req, res) => {
                     username: `${addedUsers.user.firstname} ${addedUsers.user.lastname}`,
                 });
             }
+        }
+    } catch (err) {
+        logger.error(err);
+        return res.status(500).json({
+            timestamp: new Date(),
+            status: 500,
+            error: 'Internal Server Error',
+            message: err.message,
+            path: `${req.baseUrl}${req.path}`,
+        });
+    }
+});
+
+router.post('/login', validateLoginRequiredFields, async (req, res) => {
+    try {
+        logger.info(`Entering ${req.baseUrl}${req.path}`);
+        const validationErrors = validationResult(req);
+
+        if (!validationErrors.isEmpty()) {
+            const erroMessage = validationErrors.array();
+            return res.status(400).json({
+                timestamp: new Date(),
+                status: 400,
+                error: 'Bad Request',
+                message: erroMessage,
+                path: `${req.baseUrl}${req.path}`,
+            });
+        }
+        const isValid = await checkIsValidPassword(req.body.email, req.body.password);
+        if (!isValid) {
+            return res.status(400).json({
+                timestamp: new Date(),
+                status: 400,
+                error: 'Bad Request',
+                message: 'Invalid Credientials',
+                path: `${req.baseUrl}${req.path}`,
+            });
+        } else {
+            const token = await generateJwtToken(req.body.email);
+            res.status(200).json({
+                token,
+            });
         }
     } catch (err) {
         logger.error(err);
