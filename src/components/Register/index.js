@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import '../../styles/registerIndex.css';  // Import the stylesheet
+import '../../styles/Register/registerIndex.css';  // Import the stylesheet
 import { Link, useNavigate } from "react-router-dom";
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { GoogleLogin } from '@react-oauth/google';

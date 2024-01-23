@@ -1,14 +1,14 @@
 import React from 'react';
 import { useState } from 'react';
-import '../../styles/Footer.css'; 
-import MyJob from './MyJob.js';
-import AssistantAI from './AssistantAI.js';
-import AboutUs from './AboutUs.js';
-import Home from './Home.js';
-import Header from './Header.js';
-import UserPage from './UserPage.js';
-import Footer from './Footer.js';
-import '../../styles/Dashboard.css';
+// import '../../styles/Footer.css'; 
+import MyJob from '../MyJob/MyJob.js';
+import AssistantAI from '../AssistantAI/AssistantAI.js';
+import AboutUs from '../AboutUs/AboutUs.js';
+import Home from '../Home/Home.js';
+import Header from '../Header&Footer/Header.js';
+import UserPage from '../UserPage/UserPage.js';
+import Footer from '../Header&Footer/Footer.js';
+import '../../styles/Dashboard/Dashboard.css';
 
 const Dashboard = () => {
 const [selectedPage, setSelectedPage] = useState('Home');
