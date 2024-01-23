@@ -1,17 +1,21 @@
 const supertest = require('supertest');
+const passport = require('passport');
 const app = require('../app');
 const {
     saveRegisteredUsers,
     checkUserExists,
     checkIsValidPassword,
+    getClientIdentityTokens,
 } = require('../services/auth.services');
 const { generateJwtToken } = require('../middleware/jwt.auth');
+const { useOauthPassport } = require('../middleware/google.auth');
 const mongoose = require('mongoose');
 const dbService = require('../db/dbconfig/db');
 
 jest.mock('supertest');
 jest.mock('../services/auth.services');
 jest.mock('../middleware/jwt.auth');
+jest.mock('../middleware/google.auth');
 
 beforeAll(async () => {
     await dbService.connectDB();
@@ -137,5 +141,21 @@ describe('POST /api/auth/login', () => {
             .end((err, res) => {
                 expect(res.body).toEqual(mockedResponse);
             });
+    });
+});
+
+describe('GET /api/auth/google', () => {
+    test('api to return 200 ok response', async () => {
+        // const mockedResponse = {
+        //     token: 'hajudiukii2783jnsj83msj',
+        // };
+        supertest.mockImplementation(() => ({
+            get: jest.fn().mockReturnThis(),
+            expect: jest.fn().mockReturnThis(),
+        }));
+        await getClientIdentityTokens();
+        useOauthPassport(passport);
+
+        const res = supertest(app).get('/api/auth/google').expect(200);
     });
 });

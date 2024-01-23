@@ -3,7 +3,7 @@ info:
   title: Authentication API's
   version: 1.0.0
 servers:
-  - url: http://localhost:8020
+  - url: http://localhost:4000
     description: localhost server
 paths:
   /api/auth/register:

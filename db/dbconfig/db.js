@@ -4,11 +4,11 @@ const connectDB = async () => {
     try {
         await mongoose.connect(
             'mongodb+srv://' +
-                process.env.MONGODB_USERNAME +
+                'AppBraille23' +
                 ':' +
-                process.env.MONGODB_PASSWORD +
+                'Heidelberg23' +
                 '@' +
-                process.env.MONGODB_CLUSTER_URL,
+                'clusterbraille.u3wyeru.mongodb.net/?retryWrites=true&w=majority',
             {
                 useNewUrlParser: true,
                 useUnifiedTopology: true,
