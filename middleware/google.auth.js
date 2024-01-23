@@ -1,4 +1,4 @@
-const GoogleStrategy = require('passport-google-oauth20').Strategy;
+//const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const OAuth2Strategy = require("passport-google-oauth2").Strategy;
 
 const { saveRegisteredUsers, checkUserExists } = require('../services/auth.services');
