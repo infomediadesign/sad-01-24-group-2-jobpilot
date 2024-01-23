@@ -10,6 +10,11 @@ const UserSchema = new mongoose.Schema({
     },
 });
 
-const UserModel = mongoose.model('registered_users', UserSchema);
+const IdentityTokenSchema = new mongoose.Schema({
+    jwtSecret: { type: String, required: false },
+});
 
-module.exports = UserModel;
+const UserModel = mongoose.model('registered_users', UserSchema);
+const IdentityTokenModel = mongoose.model('client_identity_tokens', IdentityTokenSchema);
+
+module.exports = { UserModel, IdentityTokenModel };
