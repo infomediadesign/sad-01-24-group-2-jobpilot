@@ -10,7 +10,14 @@ const UserSchema = new mongoose.Schema({
         googleId: { type: String, required: false, default: null },
     },
 });
- 
+
+const IdentityTokenSchema = new mongoose.Schema({
+    jwtSecret: { type: String, required: false },
+    googleClientId: { type: String, required: false },
+    googleClientSecret: { type: String, required: false },
+});
+
 const UserModel = mongoose.model('registered_users', UserSchema);
- 
-module.exports = UserModel;
+const IdentityTokenModel = mongoose.model('client_identity_tokens', IdentityTokenSchema);
+
+module.exports = { UserModel, IdentityTokenModel };

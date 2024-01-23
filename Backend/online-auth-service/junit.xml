@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="2" failures="0" errors="0" time="5.505">
-  <testsuite name="GET /api/auth/register" errors="0" failures="0" skipped="0" timestamp="2024-01-18T22:29:32" time="5.368" tests="2">
-    <testcase classname="GET /api/auth/register api to return 201 created response" name="GET /api/auth/register api to return 201 created response" time="0.006">
+<testsuites name="jest tests" tests="5" failures="0" errors="0" time="5.2">
+  <testsuite name="POST /api/auth/register" errors="0" failures="0" skipped="0" timestamp="2024-01-23T20:03:41" time="5.084" tests="5">
+    <testcase classname="POST /api/auth/register api to return 201 created response" name="POST /api/auth/register api to return 201 created response" time="0.005">
     </testcase>
-    <testcase classname="GET /api/auth/register api to return 400 bad request response" name="GET /api/auth/register api to return 400 bad request response" time="0.001">
+    <testcase classname="POST /api/auth/register api to return 400 bad request response" name="POST /api/auth/register api to return 400 bad request response" time="0.001">
+    </testcase>
+    <testcase classname="POST /api/auth/login api to return 200 ok response" name="POST /api/auth/login api to return 200 ok response" time="0.001">
+    </testcase>
+    <testcase classname="POST /api/auth/login api to return 400 bad request response" name="POST /api/auth/login api to return 400 bad request response" time="0.001">
+    </testcase>
+    <testcase classname="GET /api/auth/google api to return 200 ok response" name="GET /api/auth/google api to return 200 ok response" time="0">
     </testcase>
   </testsuite>
 </testsuites>

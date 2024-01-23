@@ -3,23 +3,17 @@ const passport = require('passport');
 const swaggerUi = require('swagger-ui-express');
 const routes = require('./routes/routes');
 const authRoutes = require('./routes/auth.router');
+const session = require('express-session');
 const loadSwaggerSpec = require('./middleware/swagger');
-const session = require("express-session");
- 
 const app = express();
 
-
-
-app.use(session({
-    secret:"1234446dffsgffg",
-    resave:false,
-    saveUninitialized:true
-}));
- 
-
-app.use(passport.initialize());
-app.use(passport.session());
-
+app.use(
+    session({
+        secret: process.env.SESSION_TOKEN,
+        resave: true,
+        saveUninitialized: true,
+    })
+);
 
 app.use(express.json(), (err, req, res, next) => {
     if (err instanceof SyntaxError && err.status === 400 && 'body' in err) {
@@ -31,10 +25,11 @@ app.use(express.json(), (err, req, res, next) => {
             path: `${req.baseUrl}${req.path}`,
         });
     }
- 
+    passport.initialize();
+    passport.session();
     next();
 });
- 
+
 const swaggerSpec = loadSwaggerSpec();
  
 app.use('/swagger-ui', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
