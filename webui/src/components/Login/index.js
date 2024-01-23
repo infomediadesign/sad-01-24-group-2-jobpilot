@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, NavLink } from "react-router-dom";
-import '../../styles/loginIndex.css';  // Import the stylesheet
+import '../../styles/Login/loginIndex.css';  // Import the stylesheet
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from "jwt-decode";
@@ -11,15 +11,11 @@ function Login() {
   const [password, setPassword] = useState('');
   const [isLoggedIn, setLoggedIn] = useState(false);
 
-  const handleLogin = () => {
-    // Simulate a login process (replace with your authentication logic)
-    if (email === 'demo' && password === 'password') {
-      setLoggedIn(true);
-      alert('Login successful!');
-    } else {
-      alert('Invalid credentials. Please try again.');
-    }
-  };
+  const loginwithgoogle = ()=>{
+    console.log("about to open new window")
+    window.open("http://localhost:4000/api/auth/google","_self")
+  }
+
 
   return (
     <div >
@@ -42,17 +38,10 @@ function Login() {
                 <div className="S9gUrf-YoZ4jf">
                   <div></div>
                   <div className="OAuth">
-                    <GoogleOAuthProvider clientId="92853935498-er6mp6hndop8mqacch7t4t2kanlds25g.apps.googleusercontent.com">
-                      <GoogleLogin
-                        onSuccess={credentialResponse => {
-                          const decoded = jwtDecode(credentialResponse.credential);
-                          console.log(decoded);
-                        }}
-                        onError={() => {
-                          console.log('Login Failed');
-                        }}
-                      />
-                    </GoogleOAuthProvider>
+                      
+                  <button className='login-with-google-btn' onClick={loginwithgoogle}>
+                    Sign In With Google
+                </button>
 
                   </div>
                 </div>
@@ -67,19 +56,15 @@ function Login() {
             <form>
               <input
                 type="text"
-                value={email}
                 placeholder="Email"
                 className="emailInput"
-                onChange={(e) => setEmail(e.target.value)}
               />
               <input
                 type="password"
-                value={password}
                 placeholder="Password"
                 className="passwordInput"
-                onChange={(e) => setPassword(e.target.value)}
               />
-              <button className="button" onClick={handleLogin}>Login</button>
+              <button className="button">Login</button>
             </form>
             <div className="mt-4">
               <Link to="/register">

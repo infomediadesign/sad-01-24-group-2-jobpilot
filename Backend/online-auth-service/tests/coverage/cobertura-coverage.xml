@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="161" lines-covered="84" line-rate="0.5217" branches-valid="23" branches-covered="0" branch-rate="0" timestamp="1706039597777" complexity="0" version="0.1">
+<coverage lines-valid="161" lines-covered="84" line-rate="0.5217" branches-valid="23" branches-covered="0" branch-rate="0" timestamp="1706040226255" complexity="0" version="0.1">
   <sources>
     <source>F:\sad-01-24-group-2-jobpilot\Backend\online-auth-service</source>
   </sources>
@@ -244,8 +244,8 @@
             <line number="105" hits="0" branch="false"/>
             <line number="106" hits="0" branch="false"/>
             <line number="116" hits="1" branch="false"/>
-            <line number="123" hits="1" branch="false"/>
-            <line number="131" hits="1" branch="false"/>
+            <line number="122" hits="1" branch="false"/>
+            <line number="130" hits="1" branch="false"/>
           </lines>
         </class>
         <class name="routes.js" filename="routes\routes.js" line-rate="0.75" branch-rate="1">

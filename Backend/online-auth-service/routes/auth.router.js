@@ -30,7 +30,7 @@ router.post('/register', validateRegisterRequiredFields, async (req, res) => {
     try {
         logger.info(`Entering ${req.baseUrl}${req.path}`);
         const validationErrors = validationResult(req);
-
+ 
         if (!validationErrors.isEmpty()) {
             const erroMessage = validationErrors.array();
             return res.status(400).json({
@@ -119,7 +119,6 @@ router.get(
         scope: ['profile', 'email'],
     })
 );
-
 router.get(
     '/google/callback',
     passport.authenticate('google', {
