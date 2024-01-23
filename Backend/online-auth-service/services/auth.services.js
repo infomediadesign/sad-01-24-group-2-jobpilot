@@ -5,9 +5,11 @@ const { logger } = require('../middleware/logging');
 
 const saveRegisteredUsers = async user => {
     try {
-        const saltRounds = 10;
-        const salt = await bcrypt.genSalt(saltRounds);
-        user.password = await bcrypt.hash(user.password, salt);
+        if (user?.password) {
+            const saltRounds = 10;
+            const salt = await bcrypt.genSalt(saltRounds);
+            user.password = await bcrypt.hash(user.password, salt);
+        }
         const saveUser = new UserModel({ user });
         await saveUser.save();
         return saveUser;
@@ -18,7 +20,7 @@ const saveRegisteredUsers = async user => {
 
 const checkUserExists = async email => {
     try {
-        const isExists = await UserModel.exists({ 'user.email': email });
+        const isExists = await UserModel.findOne({ 'user.email': email });
         return isExists;
     } catch (err) {
         logger.error(`Error while checking user exists: ` + err);
@@ -41,7 +43,6 @@ const getClientIdentityTokens = async () => {
         const clientData = await IdentityTokenModel.findOne({});
         return clientData;
     } catch (err) {
-        findfinne;
         logger.error(`Error while getting client identity tokens: ` + err);
     }
 };

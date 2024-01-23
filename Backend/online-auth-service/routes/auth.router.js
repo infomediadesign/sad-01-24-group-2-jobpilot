@@ -1,4 +1,5 @@
 const { Router } = require('express');
+const passport = require('passport');
 const { validationResult, body } = require('express-validator');
 const { logger } = require('../middleware/logging');
 const {
@@ -7,8 +8,11 @@ const {
     checkIsValidPassword,
 } = require('../services/auth.services');
 const { generateJwtToken } = require('../middleware/jwt.auth');
+const { useOauthPassport } = require('../middleware/google.auth');
 
 const router = new Router();
+
+useOauthPassport(passport);
 
 const validateRegisterRequiredFields = [
     body('user.firstname').notEmpty().withMessage('First name is required.'),
@@ -108,5 +112,20 @@ router.post('/login', validateLoginRequiredFields, async (req, res) => {
         });
     }
 });
+
+router.get(
+    '/google',
+    passport.authenticate('google', {
+        scope: ['profile', 'email'],
+    })
+);
+
+router.get(
+    '/google/callback',
+    passport.authenticate('google', {
+        failureRedirect: '/',
+        successRedirect: '/success',
+    })
+);
 
 module.exports = router;
