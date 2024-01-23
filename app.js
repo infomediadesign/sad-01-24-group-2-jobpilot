@@ -31,10 +31,10 @@ app.use(express.json(), (err, req, res, next) => {
 });
 
 const swaggerSpec = loadSwaggerSpec();
-
+ 
 app.use('/swagger-ui', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-
+ 
 app.use('/', routes);
 app.use('/api/auth', authRoutes);
-
+ 
 module.exports = app;
