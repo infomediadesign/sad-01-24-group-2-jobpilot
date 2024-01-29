@@ -4,3 +4,4 @@
 /Backend/online-auth-service/logs
 
 /Backend/online-auth-service/tests/coverage
+node_modules
