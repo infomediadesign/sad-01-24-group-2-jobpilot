@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
-import Login from './components/Login';
-import Register from './components/Register';
+import Login from '../src/pages/Login';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Dashboard from './components/Home/Dashboard';
+import Dashboard from '../src/pages/Dashboard';
 
 
 const App = () => {
@@ -13,7 +12,6 @@ const App = () => {
         <Routes>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
         </Routes>
       </BrowserRouter>
   );
