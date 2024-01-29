@@ -12,6 +12,7 @@ const saveRegisteredUsers = async user => {
         }
         const saveUser = new UserModel({ user });
         await saveUser.save();
+        logger.info('User Saved Successfully');
         return saveUser;
     } catch (err) {
         logger.error(`Error while saving Registered Users: ` + err);

@@ -1,5 +1,4 @@
 const express = require('express');
-const passport = require('passport');
 const swaggerUi = require('swagger-ui-express');
 const routes = require('./routes/routes');
 const authRoutes = require('./routes/auth.router');
@@ -25,16 +24,15 @@ app.use(express.json(), (err, req, res, next) => {
             path: `${req.baseUrl}${req.path}`,
         });
     }
-    passport.initialize();
-    passport.session();
+
     next();
 });
 
 const swaggerSpec = loadSwaggerSpec();
- 
+
 app.use('/swagger-ui', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
- 
+
 app.use('/', routes);
 app.use('/api/auth', authRoutes);
- 
+
 module.exports = app;
