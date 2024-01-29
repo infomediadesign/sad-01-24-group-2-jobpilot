@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
- 
+
 const UserSchema = new mongoose.Schema({
     user: {
         any: mongoose.Mixed,
@@ -17,7 +17,7 @@ const IdentityTokenSchema = new mongoose.Schema({
     googleClientSecret: { type: String, required: false },
 });
 
-const UserModel = mongoose.model('registered_users', UserSchema);
+const UserModel = mongoose.model('users', UserSchema);
 const IdentityTokenModel = mongoose.model('client_identity_tokens', IdentityTokenSchema);
 
 module.exports = { UserModel, IdentityTokenModel };

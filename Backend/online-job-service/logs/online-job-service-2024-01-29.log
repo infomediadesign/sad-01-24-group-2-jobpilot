@@ -1,0 +1,202 @@
+2024-01-29T13:01:45.624Z [online-job-service] error: uncaughtException: Cannot find module '../middleware/logging'
+Require stack:
+- F:\sad-01-24-group-2-jobpilot\Backend\online-job-service\db\dbconfig\db.js
+- F:\sad-01-24-group-2-jobpilot\Backend\online-job-service\server.js
+Error: Cannot find module '../middleware/logging'
+Require stack:
+- F:\sad-01-24-group-2-jobpilot\Backend\online-job-service\db\dbconfig\db.js
+- F:\sad-01-24-group-2-jobpilot\Backend\online-job-service\server.js
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:933:15)
+    at Function.Module._load (node:internal/modules/cjs/loader:778:27)
+    at Module.require (node:internal/modules/cjs/loader:1005:19)
+    at require (node:internal/modules/cjs/helpers:102:18)
+    at Object.<anonymous> (F:\sad-01-24-group-2-jobpilot\Backend\online-job-service\db\dbconfig\db.js:2:20)
+    at Module._compile (node:internal/modules/cjs/loader:1105:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1159:10)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Module.require (node:internal/modules/cjs/loader:1005:19)
+2024-01-29T13:02:19.363Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T13:02:26.826Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T13:02:32.265Z [online-job-service] info: Connected to MongoDB
+2024-01-29T13:02:35.775Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T13:02:36.133Z [online-job-service] info: Connected to MongoDB
+2024-01-29T13:02:59.807Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T13:03:00.126Z [online-job-service] info: Connected to MongoDB
+2024-01-29T13:04:35.675Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T13:04:36.110Z [online-job-service] info: Connected to MongoDB
+2024-01-29T13:04:48.734Z [online-job-service] info: Entering /api/job/track
+2024-01-29T13:04:48.975Z [online-job-service] info: Job applications saved successfully
+2024-01-29T13:04:49.025Z [online-job-service] info: application retrived successfully
+2024-01-29T13:12:51.350Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T13:12:51.771Z [online-job-service] info: Connected to MongoDB
+2024-01-29T13:12:59.582Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T13:12:59.942Z [online-job-service] info: Connected to MongoDB
+2024-01-29T13:13:12.880Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T13:13:13.211Z [online-job-service] info: Connected to MongoDB
+2024-01-29T13:13:19.840Z [online-job-service] info: Entering /api/job/track
+2024-01-29T13:13:20.108Z [online-job-service] info: Job applications saved successfully
+2024-01-29T13:13:20.127Z [online-job-service] info: application retrived successfully
+2024-01-29T13:13:37.441Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T13:13:37.814Z [online-job-service] info: Connected to MongoDB
+2024-01-29T13:13:44.775Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T13:13:45.121Z [online-job-service] info: Connected to MongoDB
+2024-01-29T13:13:46.640Z [online-job-service] info: Entering /api/job/track
+2024-01-29T13:13:46.824Z [online-job-service] info: Job applications saved successfully
+2024-01-29T13:13:46.880Z [online-job-service] info: application retrived successfully
+2024-01-29T13:13:50.879Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T13:13:51.325Z [online-job-service] info: Connected to MongoDB
+2024-01-29T13:26:02.247Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T13:26:02.670Z [online-job-service] info: Connected to MongoDB
+2024-01-29T13:26:06.898Z [online-job-service] info: Entering /api/job/track
+2024-01-29T13:26:07.136Z [online-job-service] info: Job applications saved successfully
+2024-01-29T13:26:07.182Z [online-job-service] info: Applications retrieved successfully
+2024-01-29T13:29:15.424Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T13:29:15.839Z [online-job-service] info: Connected to MongoDB
+2024-01-29T13:29:19.057Z [online-job-service] info: Entering /api/job/track
+2024-01-29T13:29:20.324Z [online-job-service] info: Job applications saved successfully
+2024-01-29T13:29:20.376Z [online-job-service] info: application retrived successfully
+2024-01-29T13:29:40.718Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T13:29:41.077Z [online-job-service] info: Connected to MongoDB
+2024-01-29T13:29:46.815Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T13:29:47.158Z [online-job-service] info: Connected to MongoDB
+2024-01-29T13:29:50.141Z [online-job-service] info: Entering /api/job/track
+2024-01-29T13:29:50.342Z [online-job-service] info: Job applications saved successfully
+2024-01-29T13:29:50.373Z [online-job-service] info: Applications retrieved successfully
+2024-01-29T13:34:02.968Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T13:34:03.446Z [online-job-service] info: Connected to MongoDB
+2024-01-29T13:34:13.237Z [online-job-service] error: uncaughtException: Unexpected identifier
+F:\sad-01-24-group-2-jobpilot\Backend\online-job-service\services\job.services.js:34
+                        company: '$company',
+                        ^^^^^^^
+
+SyntaxError: Unexpected identifier
+    at Object.compileFunction (node:vm:352:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1033:15)
+    at Module._compile (node:internal/modules/cjs/loader:1069:27)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1159:10)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Module.require (node:internal/modules/cjs/loader:1005:19)
+    at require (node:internal/modules/cjs/helpers:102:18)
+    at Object.<anonymous> (F:\sad-01-24-group-2-jobpilot\Backend\online-job-service\routes\job.router.js:4:40)
+    at Module._compile (node:internal/modules/cjs/loader:1105:14)
+2024-01-29T13:34:16.244Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T13:34:16.588Z [online-job-service] info: Connected to MongoDB
+2024-01-29T13:34:18.617Z [online-job-service] info: Entering /api/job/track
+2024-01-29T13:34:18.804Z [online-job-service] error: Error while refreshing token: AxiosError: Request failed with status code 500
+2024-01-29T13:34:18.960Z [online-job-service] error: Error while retrivig the email id list: AxiosError: Request failed with status code 401
+2024-01-29T13:34:18.961Z [online-job-service] error: Error while retrivig the email messages: TypeError: Cannot read properties of undefined (reading 'messages')
+2024-01-29T13:34:18.962Z [online-job-service] error: Error while building job application details: TypeError: messageObjects is not iterable
+2024-01-29T13:34:18.962Z [online-job-service] error: erroMessage is not defined
+2024-01-29T13:34:34.568Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T13:34:34.913Z [online-job-service] info: Connected to MongoDB
+2024-01-29T13:37:40.033Z [online-job-service] info: Entering /api/job/track
+2024-01-29T13:37:40.218Z [online-job-service] error: Error while refreshing token: AxiosError: Request failed with status code 500
+2024-01-29T13:37:40.360Z [online-job-service] error: Error while retrivig the email id list: AxiosError: Request failed with status code 401
+2024-01-29T13:37:40.361Z [online-job-service] error: Error while retrivig the email messages: TypeError: Cannot read properties of undefined (reading 'messages')
+2024-01-29T13:37:40.362Z [online-job-service] error: Error while building job application details: TypeError: messageObjects is not iterable
+2024-01-29T13:37:40.363Z [online-job-service] error: erroMessage is not defined
+2024-01-29T13:38:00.612Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T13:38:01.053Z [online-job-service] info: Connected to MongoDB
+2024-01-29T13:38:06.185Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T13:38:06.529Z [online-job-service] info: Connected to MongoDB
+2024-01-29T13:38:08.932Z [online-job-service] info: Entering /api/job/track
+2024-01-29T13:38:09.066Z [online-job-service] error: Error while refreshing token: AxiosError: Request failed with status code 500
+2024-01-29T13:38:09.196Z [online-job-service] error: Error while retrivig the email id list: AxiosError: Request failed with status code 401
+2024-01-29T13:38:09.197Z [online-job-service] error: Error while retrivig the email messages: TypeError: Cannot read properties of undefined (reading 'messages')
+2024-01-29T13:38:09.198Z [online-job-service] error: Error while building job application details: TypeError: messageObjects is not iterable
+2024-01-29T13:38:09.198Z [online-job-service] error: erroMessage is not defined
+2024-01-29T13:39:07.479Z [online-job-service] info: Entering /api/job/track
+2024-01-29T13:39:07.705Z [online-job-service] info: Job applications saved successfully
+2024-01-29T13:39:07.744Z [online-job-service] info: Applications retrieved successfully
+2024-01-29T13:39:59.300Z [online-job-service] error: uncaughtException: Unexpected identifier
+F:\sad-01-24-group-2-jobpilot\Backend\online-job-service\services\job.services.js:34
+                        company: '$company',
+                        ^^^^^^^
+
+SyntaxError: Unexpected identifier
+    at Object.compileFunction (node:vm:352:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1033:15)
+    at Module._compile (node:internal/modules/cjs/loader:1069:27)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1159:10)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Module.require (node:internal/modules/cjs/loader:1005:19)
+    at require (node:internal/modules/cjs/helpers:102:18)
+    at Object.<anonymous> (F:\sad-01-24-group-2-jobpilot\Backend\online-job-service\routes\job.router.js:4:40)
+    at Module._compile (node:internal/modules/cjs/loader:1105:14)
+2024-01-29T13:40:01.598Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T13:40:02.034Z [online-job-service] info: Connected to MongoDB
+2024-01-29T13:40:05.573Z [online-job-service] info: Entering /api/job/track
+2024-01-29T13:40:05.883Z [online-job-service] info: Job applications saved successfully
+2024-01-29T13:40:05.942Z [online-job-service] info: Applications retrieved successfully
+2024-01-29T13:46:24.662Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T13:46:25.099Z [online-job-service] info: Connected to MongoDB
+2024-01-29T13:46:32.180Z [online-job-service] info: Entering /api/job/track
+2024-01-29T13:46:32.540Z [online-job-service] info: Job applications saved successfully
+2024-01-29T13:46:32.586Z [online-job-service] info: Applications retrieved successfully
+2024-01-29T13:49:06.911Z [online-job-service] error: uncaughtException: Unexpected identifier
+F:\sad-01-24-group-2-jobpilot\Backend\online-job-service\services\job.services.js:34
+                        company: '$company',
+                        ^^^^^^^
+
+SyntaxError: Unexpected identifier
+    at Object.compileFunction (node:vm:352:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1033:15)
+    at Module._compile (node:internal/modules/cjs/loader:1069:27)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1159:10)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Module.require (node:internal/modules/cjs/loader:1005:19)
+    at require (node:internal/modules/cjs/helpers:102:18)
+    at Object.<anonymous> (F:\sad-01-24-group-2-jobpilot\Backend\online-job-service\routes\job.router.js:4:40)
+    at Module._compile (node:internal/modules/cjs/loader:1105:14)
+2024-01-29T13:49:09.043Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T13:49:09.510Z [online-job-service] info: Connected to MongoDB
+2024-01-29T13:49:14.737Z [online-job-service] info: Entering /api/job/track
+2024-01-29T13:49:14.972Z [online-job-service] info: Job applications saved successfully
+2024-01-29T13:49:15.054Z [online-job-service] info: Applications retrieved successfully
+2024-01-29T13:53:00.768Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T13:53:01.366Z [online-job-service] info: Connected to MongoDB
+2024-01-29T13:53:06.301Z [online-job-service] info: Entering /api/job/track
+2024-01-29T13:53:06.518Z [online-job-service] info: Job applications saved successfully
+2024-01-29T13:53:06.564Z [online-job-service] info: application retrived successfully
+2024-01-29T13:54:09.371Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T13:54:10.037Z [online-job-service] info: Connected to MongoDB
+2024-01-29T13:54:11.601Z [online-job-service] info: Entering /api/job/track
+2024-01-29T13:54:11.797Z [online-job-service] info: Job applications saved successfully
+2024-01-29T13:54:11.859Z [online-job-service] info: Applications retrieved successfully
+2024-01-29T13:54:23.646Z [online-job-service] info: Entering /api/job/track
+2024-01-29T13:54:23.857Z [online-job-service] info: Job applications saved successfully
+2024-01-29T13:54:23.902Z [online-job-service] info: Applications retrieved successfully
+2024-01-29T13:55:03.448Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T13:55:03.806Z [online-job-service] info: Connected to MongoDB
+2024-01-29T13:55:05.253Z [online-job-service] info: Entering /api/job/track
+2024-01-29T13:55:05.430Z [online-job-service] info: Job applications saved successfully
+2024-01-29T13:55:05.461Z [online-job-service] info: Applications retrieved successfully
+2024-01-29T13:56:16.344Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T13:56:16.786Z [online-job-service] info: Connected to MongoDB
+2024-01-29T13:56:17.114Z [online-job-service] info: Entering /api/job/track
+2024-01-29T13:56:17.299Z [online-job-service] info: Job applications saved successfully
+2024-01-29T13:56:17.349Z [online-job-service] info: application retrived successfully
+2024-01-29T14:03:59.586Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T14:04:00.050Z [online-job-service] info: Connected to MongoDB
+2024-01-29T14:04:04.102Z [online-job-service] info: Entering /api/job/track
+2024-01-29T14:04:15.173Z [online-job-service] info: Entering /api/job/track
+2024-01-29T14:04:17.257Z [online-job-service] info: Job applications saved successfully
+2024-01-29T14:04:17.300Z [online-job-service] info: application retrived successfully
+2024-01-29T14:04:21.921Z [online-job-service] info: Job applications saved successfully
+2024-01-29T14:04:21.982Z [online-job-service] info: application retrived successfully
+2024-01-29T17:16:16.799Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T17:16:17.342Z [online-job-service] info: Connected to MongoDB
+2024-01-29T17:31:22.227Z [online-job-service] info: Entering /api/job/track
+2024-01-29T19:04:48.013Z [online-job-service] info: Entering /api/job/track
+2024-01-29T19:04:48.467Z [online-job-service] error: Error while refreshing token: AxiosError: Request failed with status code 500
+2024-01-29T19:04:49.585Z [online-job-service] error: Error while retrivig the email id list: AxiosError: Request failed with status code 401
+2024-01-29T19:04:49.586Z [online-job-service] error: Error while retrivig the email messages: TypeError: Cannot read properties of undefined (reading 'messages')
+2024-01-29T19:04:49.588Z [online-job-service] error: Error while building job application details: TypeError: messageObjects is not iterable
+2024-01-29T19:04:49.589Z [online-job-service] error: erroMessage is not defined
+2024-01-29T19:05:34.906Z [online-job-service] info: Entering /api/job/track
+2024-01-29T19:05:35.370Z [online-job-service] info: Job applications saved successfully
+2024-01-29T19:05:35.502Z [online-job-service] info: application retrived successfully

@@ -1,0 +1,147 @@
+openapi: 3.0.0
+info:
+  title: Authentication API's
+  version: 1.0.0
+servers:
+  - url: http://localhost:4000
+    description: localhost server
+paths:
+  /api/auth/register:
+    post:
+      summary: User Registration API
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegistrationRequestBody'
+              type: object
+              properties:
+                user:
+                  type: object
+                  properties:
+                    firstname:
+                      type: string
+                      example: Mahesh
+                    lastname:
+                      example: Nidugala
+                    email:
+                      example: mahesh.nidugala@gmail.com
+                    password:
+                      example: example
+      responses:
+        '201':
+          description: CREATED
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegistrationSuccessResponse'
+              example: { 'message': 'User Registered Successfully', 'username': 'Mahesh Nidugala' }
+        '400':
+          description: BAD REQUEST
+          content:
+            application/json:
+              example:
+                {
+                  'timestamp': '2024-01-17T02:40:35.512Z',
+                  'status': 400,
+                  'error': 'Bad Request',
+                  'message': 'Invalid Json Format or Request body missing',
+                  'path': '/api/auth/register',
+                }
+        '500':
+          description: INTERNAL SERVER ERROR
+          content:
+            application/json:
+              example:
+                {
+                  'timestamp': '2024-01-17T02:40:35.512Z',
+                  'status': 500,
+                  'error': 'Internal Server Error',
+                  'message': 'Some Error Message',
+                  'path': '/api/auth/register',
+                }
+  /api/auth/login:
+    post:
+      summary: User Login API
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequestBody'
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: mahesh.nidugala@gmail.com
+                password:
+                  type: string
+                  example: example
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginSuccessResponse'
+              example: { 'token': 'hkhjsjy536sjs78738989bjus98' }
+        '400':
+          description: BAD REQUEST
+          content:
+            application/json:
+              example:
+                {
+                  'timestamp': '2024-01-17T02:40:35.512Z',
+                  'status': 400,
+                  'error': 'Bad Request',
+                  'message': 'Invalid Json Format or Request body missing',
+                  'path': '/api/auth/login',
+                }
+        '500':
+          description: INTERNAL SERVER ERROR
+          content:
+            application/json:
+              example:
+                {
+                  'timestamp': '2024-01-17T02:40:35.512Z',
+                  'status': 500,
+                  'error': 'Internal Server Error',
+                  'message': 'Some Error Message',
+                  'path': '/api/auth/login',
+                }
+components:
+  schemas:
+    RegistrationRequestBody:
+      type: object
+      properties:
+        user:
+          type: object
+          properties:
+            firstname:
+              type: string
+            lastname:
+              type: string
+            email:
+              type: string
+            password:
+              type: string
+    RegistrationSuccessResponse:
+      type: object
+      properties:
+        message:
+          type: string
+        username:
+          type: string
+    LoginRequestBody:
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+    LoginSuccessResponse:
+      type: object
+      properties:
+        token:
+          type: string
