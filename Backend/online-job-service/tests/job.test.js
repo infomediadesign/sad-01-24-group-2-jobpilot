@@ -1,21 +1,23 @@
 const supertest = require('supertest');
-const passport = require('passport');
 const app = require('../app');
 const {
-    saveRegisteredUsers,
-    checkUserExists,
-    checkIsValidPassword,
-    getClientIdentityTokens,
+    refreshAccessToken,
+    getEmailIds,
+    getEmailMessageLists,
+    getEmailMessages,
+    getIdsFromApplications,
 } = require('../services/job.services');
-const { generateJwtToken } = require('../middleware/jwt.auth');
-const { useOauthPassport } = require('../middleware/google.auth');
+const { getFilteredEmailMessages } = require('../middleware/helpers');
 const mongoose = require('mongoose');
 const dbService = require('../db/dbconfig/db');
+const {
+    emailMessageWithOutParts,
+    emailMessageResponse,
+    emailMessageWithParts,
+    filteredMessageResponse,
+} = require('./mocks');
 
-jest.mock('supertest');
-jest.mock('../services/auth.services');
-jest.mock('../middleware/jwt.auth');
-jest.mock('../middleware/google.auth');
+jest.mock('axios');
 
 beforeAll(async () => {
     await dbService.connectDB();
@@ -25,137 +27,97 @@ afterAll(async () => {
     await mongoose.connection.close();
 });
 
-describe('POST /api/auth/register', () => {
-    test('api to return 201 created response', async () => {
-        const mockRequest = {
-            user: {
-                firstname: 'Test',
-                lastname: 'Test',
-                email: 'test@gmail.com',
-                password: 'test',
+describe('refreshAccessToken', () => {
+    it('tests the refreshAccessToken function', async () => {
+        const expiryDate = '1706582791469';
+        const refreshToken =
+            '1%2F%2F09GFnmxg_4hvICgYIARAAGAkSNwF-L9IrVGRZyLQDgsMBFFbq_tx6IO3EVE6vZvbuPl8VQsi1p3wYuGeeWrZr5gUEQxoLY';
+
+        const mockResponse = 'Access Token refreshed';
+        require('axios').post.mockResolvedValue(mockResponse);
+
+        await refreshAccessToken(expiryDate, refreshToken);
+
+        expect(require('axios').post).toHaveBeenCalledWith(
+            `${process.env.ONLINE_AUTH_SERVICE_URL}refresh/token`,
+            {
+                expiryDate,
+                refreshToken,
             },
-        };
-        const mockedResponse = {
-            message: 'User Registered successfully',
-            username: 'Test Test',
-        };
-        supertest.mockImplementation(() => ({
-            post: jest.fn().mockReturnThis(),
-            send: jest.fn().mockReturnThis(),
-            expect: jest.fn().mockReturnThis(),
-            end: jest.fn().mockImplementation(callback => {
-                callback(null, { body: mockedResponse });
-            }),
-        }));
-        saveRegisteredUsers.mockResolvedValue(mockRequest.user);
-        checkUserExists.mockResolvedValue(true);
-        const savedUsers = await saveRegisteredUsers(mockRequest.user);
-        const isUserExists = await checkUserExists(mockRequest.user.email);
-        expect(isUserExists).toBe(true);
-        expect(checkUserExists).toHaveBeenCalledWith(mockRequest.user.email);
-
-        const res = supertest(app)
-            .post('/api/auth/register')
-            .send(mockRequest)
-            .expect(201)
-            .end((err, res) => {
-                expect(res.body).toEqual(mockedResponse);
-            });
-    });
-
-    test('api to return 400 bad request response', async () => {
-        const mockedResponse = {
-            timestamp: '2024-01-17T02:40:35.512Z',
-            status: 400,
-            error: 'Bad Request',
-            message: 'Invalid Json Format or Request body missing',
-            path: '/api/auth/register',
-        };
-        supertest.mockImplementation(() => ({
-            post: jest.fn().mockReturnThis(),
-            expect: jest.fn().mockReturnThis(),
-            end: jest.fn().mockImplementation(callback => {
-                callback(null, { body: mockedResponse });
-            }),
-        }));
-        const res = supertest(app)
-            .post('/api/auth/register')
-            .expect(400)
-            .end((err, res) => {
-                expect(res.body).toEqual(mockedResponse);
-            });
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            },
+        );
     });
 });
 
-describe('POST /api/auth/login', () => {
-    test('api to return 200 ok response', async () => {
-        const mockRequest = {
-            email: 'mahesh.nidugala19@gmail.com',
-            password: 'Mahesh',
-        };
-        const mockedResponse = {
-            token: 'hajudiukii2783jnsj83msj',
-        };
-        supertest.mockImplementation(() => ({
-            post: jest.fn().mockReturnThis(),
-            send: jest.fn().mockReturnThis(),
-            expect: jest.fn().mockReturnThis(),
-            end: jest.fn().mockImplementation(callback => {
-                callback(null, { body: mockedResponse });
-            }),
-        }));
-        checkIsValidPassword.mockResolvedValue(true);
-        generateJwtToken.mockResolvedValue(mockedResponse);
-        const isValid = await checkIsValidPassword(mockRequest.email, mockRequest.password);
-        const token = await generateJwtToken(mockRequest.email);
-        expect(isValid).toBe(true);
-        expect(token).toBe(mockedResponse);
+describe('getEmailIds', () => {
+    it('tests the getEmailIds function', async () => {
+        jest.clearAllMocks();
+        const email = 'mahesh.nidugala@gmail.com';
+        const accessToken =
+            '1%2F%2F09GFnmxg_4hvICgYIARAAGAkSNwF-L9IrVGRZyLQDgsMBFFbq_tx6IO3EVE6vZvbuPl8VQsi1p3wYuGeeWrZr5gUEQxoLY';
+        const emailQueryString = '"subject: your application"';
 
-        const res = supertest(app)
-            .post('/api/auth/login')
-            .send(mockRequest)
-            .expect(200)
-            .end((err, res) => {
-                expect(res.body).toEqual(mockedResponse);
-            });
-    });
-
-    test('api to return 400 bad request response', async () => {
-        const mockedResponse = {
-            timestamp: '2024-01-17T02:40:35.512Z',
-            status: 400,
-            error: 'Bad Request',
-            message: 'Invalid Json Format or Request body missing',
-            path: '/api/auth/login',
+        const mockResponse = {
+            messages: [
+                {
+                    id: '18b8c6d519cbc389',
+                    threadId: '18b8c6d519cbc389',
+                },
+                {
+                    id: '18b667c7631aa1c4',
+                    threadId: '18b667c7631aa1c4',
+                },
+            ],
         };
-        supertest.mockImplementation(() => ({
-            post: jest.fn().mockReturnThis(),
-            expect: jest.fn().mockReturnThis(),
-            end: jest.fn().mockImplementation(callback => {
-                callback(null, { body: mockedResponse });
-            }),
-        }));
-        const res = supertest(app)
-            .post('/api/auth/login')
-            .expect(400)
-            .end((err, res) => {
-                expect(res.body).toEqual(mockedResponse);
-            });
+        require('axios').get.mockResolvedValueOnce(mockResponse);
+
+        await getEmailIds(email, accessToken, emailQueryString);
+
+        expect(require('axios').get).toHaveBeenCalledWith(
+            `${process.env.GOOGLE_API_URL}${email}/messages?q=${emailQueryString}`,
+            {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
+                    'Content-Type': 'application/json',
+                },
+            },
+        );
     });
 });
 
-describe('GET /api/auth/google', () => {
-    test('api to return 200 ok response', async () => {
-        // const mockedResponse = {
-        //     token: 'hajudiukii2783jnsj83msj',
-        // };
-        supertest.mockImplementation(() => ({
-            get: jest.fn().mockReturnThis(),
-            expect: jest.fn().mockReturnThis(),
-        }));
-        await getClientIdentityTokens();
-        useOauthPassport(passport);
+describe('getFilteredEmailMessages', () => {
+    it('tests the getFilteredEmailMessages function', async () => {
+        const resultWithOutParts = await getFilteredEmailMessages(emailMessageWithOutParts);
+        const resultWithParts = await getFilteredEmailMessages(emailMessageWithParts);
 
-        const res = supertest(app).get('/api/auth/google').expect(200);
+        expect(resultWithOutParts).toBeTruthy();
+        expect(resultWithParts).toBeTruthy();
+    });
+});
+
+describe('getEmailMessageLists', () => {
+    it('tests the getEmailMessageLists function', async () => {
+        jest.clearAllMocks();
+        const email = 'mahesh.nidugala@gmail.com';
+        const accessToken =
+            '1%2F%2F09GFnmxg_4hvICgYIARAAGAkSNwF-L9IrVGRZyLQDgsMBFFbq_tx6IO3EVE6vZvbuPl8VQsi1p3wYuGeeWrZr5gUEQxoLY';
+
+        require('axios').get.mockResolvedValueOnce(emailMessageWithParts);
+
+        const result = await getEmailMessageLists(email, accessToken, '18b92dfa08f8bf38');
+
+        expect(require('axios').get).toHaveBeenCalledWith(
+            `${process.env.GOOGLE_API_URL}${email}/messages/18b92dfa08f8bf38`,
+            {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
+                    'Content-Type': 'application/json',
+                },
+            },
+        );
     });
 });
