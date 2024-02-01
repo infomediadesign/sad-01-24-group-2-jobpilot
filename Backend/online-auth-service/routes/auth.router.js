@@ -158,8 +158,9 @@ router.get('/google/callback', async (req, res) => {
         }
         res.cookie('access_token', tokens.access_token);
         res.cookie('expiry_date', tokens.expiry_date);
-        res.cookie('refresh_token', tokens.refresh_token);
-        res.send('Authentication successful!');
+        res.cookie('email',userInfo.data.email);
+        res.redirect('http://localhost:3000/dashboard');
+        logger.info('Authentication successful!');
     } catch (err) {
         logger.error(err);
         return res.status(500).json({
