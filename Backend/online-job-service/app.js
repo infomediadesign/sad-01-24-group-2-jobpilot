@@ -1,11 +1,13 @@
 const express = require('express');
-const passport = require('passport');
+const cors = require('cors');
 const swaggerUi = require('swagger-ui-express');
 const routes = require('./routes/routes');
 const jobRoutes = require('./routes/job.router');
 const loadSwaggerSpec = require('./middleware/swagger');
 const app = express();
 const cors = require('cors');
+
+app.use(cors());
 
 app.use(express.json(), (err, req, res, next) => {
     if (err instanceof SyntaxError && err.status === 400 && 'body' in err) {
@@ -17,8 +19,6 @@ app.use(express.json(), (err, req, res, next) => {
             path: `${req.baseUrl}${req.path}`,
         });
     }
-    passport.initialize();
-    passport.session();
     next();
 });
 

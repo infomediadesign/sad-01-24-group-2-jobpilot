@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const swaggerUi = require('swagger-ui-express');
 const routes = require('./routes/routes');
 const authRoutes = require('./routes/auth.router');
@@ -7,6 +8,8 @@ const loadSwaggerSpec = require('./middleware/swagger');
 const app = express();
 const cors = require('cors');
 
+
+app.use(cors());
 
 app.use(
     session({
