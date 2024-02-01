@@ -167,9 +167,11 @@ const buildJobApplicationDetails = async (
             }
 
             const jobApplication = await getJobApplicationDetails(messageObject.message);
+            logger.info(`ai api completed ${requestCounter}`);
             jobApplicationData.push(jobApplication);
             requestCounter++;
         }
+    
         await saveJobApplications(jobApplicationData);
         const jobApplicationStatusData = await getJobApplications(email);
         return jobApplicationStatusData;
