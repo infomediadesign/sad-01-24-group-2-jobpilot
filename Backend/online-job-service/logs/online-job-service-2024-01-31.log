@@ -1,0 +1,108 @@
+2024-01-31T08:44:13.194Z [online-job-service] info: Server running in undefined mode on port undefined
+2024-01-31T08:44:14.210Z [online-job-service] info: Connected to MongoDB
+2024-01-31T08:44:32.576Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-31T08:44:33.298Z [online-job-service] info: Connected to MongoDB
+2024-01-31T08:47:16.788Z [online-job-service] info: Entering /api/job/track
+2024-01-31T08:47:16.799Z [online-job-service] info: Entering /api/job/track
+2024-01-31T08:47:17.543Z [online-job-service] error: Error while retrivig the email id list: AxiosError: Request failed with status code 401
+2024-01-31T08:47:17.546Z [online-job-service] error: Error while retrivig the email messages: TypeError: Cannot read properties of undefined (reading 'messages')
+2024-01-31T08:47:17.546Z [online-job-service] error: Error while building job application details: TypeError: messageObjects is not iterable
+2024-01-31T08:47:17.547Z [online-job-service] error: erroMessage is not defined
+2024-01-31T08:47:17.765Z [online-job-service] error: Error while retrivig the email id list: AxiosError: Request failed with status code 401
+2024-01-31T08:47:17.767Z [online-job-service] error: Error while retrivig the email messages: TypeError: Cannot read properties of undefined (reading 'messages')
+2024-01-31T08:47:17.767Z [online-job-service] error: Error while building job application details: TypeError: messageObjects is not iterable
+2024-01-31T08:47:17.767Z [online-job-service] error: erroMessage is not defined
+2024-01-31T08:47:38.486Z [online-job-service] info: Entering /api/job/track
+2024-01-31T08:47:38.492Z [online-job-service] info: Entering /api/job/track
+2024-01-31T08:47:46.200Z [online-job-service] info: ai api completed 0
+2024-01-31T08:47:46.296Z [online-job-service] info: Job applications saved successfully
+2024-01-31T08:47:46.409Z [online-job-service] info: application retrived successfully
+2024-01-31T08:47:51.623Z [online-job-service] info: ai api completed 0
+2024-01-31T08:47:51.698Z [online-job-service] info: Job applications saved successfully
+2024-01-31T08:47:51.814Z [online-job-service] info: application retrived successfully
+2024-01-31T08:49:03.605Z [online-job-service] info: Entering /api/job/track
+2024-01-31T08:49:03.641Z [online-job-service] info: Entering /api/job/track
+2024-01-31T08:49:04.122Z [online-job-service] info: Job applications saved successfully
+2024-01-31T08:49:04.127Z [online-job-service] info: Job applications saved successfully
+2024-01-31T08:49:04.233Z [online-job-service] info: application retrived successfully
+2024-01-31T08:49:04.239Z [online-job-service] info: application retrived successfully
+2024-01-31T12:43:35.469Z [online-job-service] info: Entering /api/job/track
+2024-01-31T12:43:35.475Z [online-job-service] info: Entering /api/job/track
+2024-01-31T12:43:50.465Z [online-job-service] info: Entering /api/job/track
+2024-01-31T12:43:50.469Z [online-job-service] info: Entering /api/job/track
+2024-01-31T12:44:05.847Z [online-job-service] error: Error while getting job applications from database: MongoServerSelectionError: C09EB1E501000000:error:0A000438:SSL routines:ssl3_read_bytes:tlsv1 alert internal error:ssl/record/rec_layer_s3.c:1586:SSL alert number 80
+
+2024-01-31T12:44:05.850Z [online-job-service] error: Error while getting job applications from database: MongoServerSelectionError: C09EB1E501000000:error:0A000438:SSL routines:ssl3_read_bytes:tlsv1 alert internal error:ssl/record/rec_layer_s3.c:1586:SSL alert number 80
+
+2024-01-31T12:44:06.085Z [online-job-service] error: Error while retrivig the email id list: AxiosError: Request failed with status code 401
+2024-01-31T12:44:06.087Z [online-job-service] error: Error while retrivig the email messages: TypeError: Cannot read properties of undefined (reading 'messages')
+2024-01-31T12:44:06.088Z [online-job-service] error: Error while building job application details: TypeError: messageObjects is not iterable
+2024-01-31T12:44:06.088Z [online-job-service] error: erroMessage is not defined
+2024-01-31T12:44:06.089Z [online-job-service] error: Error while retrivig the email id list: AxiosError: Request failed with status code 401
+2024-01-31T12:44:06.089Z [online-job-service] error: Error while retrivig the email messages: TypeError: Cannot read properties of undefined (reading 'messages')
+2024-01-31T12:44:06.089Z [online-job-service] error: Error while building job application details: TypeError: messageObjects is not iterable
+2024-01-31T12:44:06.089Z [online-job-service] error: erroMessage is not defined
+2024-01-31T12:44:20.692Z [online-job-service] error: Error while getting job applications from database: MongoServerSelectionError: C09EB1E501000000:error:0A000438:SSL routines:ssl3_read_bytes:tlsv1 alert internal error:ssl/record/rec_layer_s3.c:1586:SSL alert number 80
+
+2024-01-31T12:44:20.703Z [online-job-service] error: Error while getting job applications from database: MongoServerSelectionError: C09EB1E501000000:error:0A000438:SSL routines:ssl3_read_bytes:tlsv1 alert internal error:ssl/record/rec_layer_s3.c:1586:SSL alert number 80
+
+2024-01-31T12:44:20.897Z [online-job-service] error: Error while retrivig the email id list: AxiosError: Request failed with status code 401
+2024-01-31T12:44:20.899Z [online-job-service] error: Error while retrivig the email messages: TypeError: Cannot read properties of undefined (reading 'messages')
+2024-01-31T12:44:20.899Z [online-job-service] error: Error while building job application details: TypeError: messageObjects is not iterable
+2024-01-31T12:44:20.900Z [online-job-service] error: erroMessage is not defined
+2024-01-31T12:44:20.915Z [online-job-service] error: Error while retrivig the email id list: AxiosError: Request failed with status code 401
+2024-01-31T12:44:20.916Z [online-job-service] error: Error while retrivig the email messages: TypeError: Cannot read properties of undefined (reading 'messages')
+2024-01-31T12:44:20.916Z [online-job-service] error: Error while building job application details: TypeError: messageObjects is not iterable
+2024-01-31T12:44:20.917Z [online-job-service] error: erroMessage is not defined
+2024-01-31T12:45:20.697Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-31T12:45:50.843Z [online-job-service] error: Error connecting to MongoDB: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+2024-01-31T12:52:08.299Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-31T12:52:12.056Z [online-job-service] info: Connected to MongoDB
+2024-01-31T12:52:31.677Z [online-job-service] info: Entering /api/job/track
+2024-01-31T12:52:31.686Z [online-job-service] info: Entering /api/job/track
+2024-01-31T12:52:32.198Z [online-job-service] info: Job applications saved successfully
+2024-01-31T12:52:32.324Z [online-job-service] info: application retrived successfully
+2024-01-31T12:52:32.410Z [online-job-service] info: Job applications saved successfully
+2024-01-31T12:52:32.462Z [online-job-service] info: application retrived successfully
+2024-01-31T12:57:31.889Z [online-job-service] info: Entering /api/job/track
+2024-01-31T12:57:31.898Z [online-job-service] info: Entering /api/job/track
+2024-01-31T12:57:32.477Z [online-job-service] info: Job applications saved successfully
+2024-01-31T12:57:32.596Z [online-job-service] info: application retrived successfully
+2024-01-31T12:57:32.628Z [online-job-service] info: Job applications saved successfully
+2024-01-31T12:57:32.690Z [online-job-service] info: application retrived successfully
+2024-01-31T12:58:50.221Z [online-job-service] info: Entering /api/job/track
+2024-01-31T12:58:50.224Z [online-job-service] info: Entering /api/job/track
+2024-01-31T12:58:50.786Z [online-job-service] info: Job applications saved successfully
+2024-01-31T12:58:50.788Z [online-job-service] info: Job applications saved successfully
+2024-01-31T12:58:50.890Z [online-job-service] info: application retrived successfully
+2024-01-31T12:58:50.899Z [online-job-service] info: application retrived successfully
+2024-01-31T12:59:49.143Z [online-job-service] info: Entering /api/job/track
+2024-01-31T12:59:49.152Z [online-job-service] info: Entering /api/job/track
+2024-01-31T12:59:49.567Z [online-job-service] info: Job applications saved successfully
+2024-01-31T12:59:49.571Z [online-job-service] info: Job applications saved successfully
+2024-01-31T12:59:49.673Z [online-job-service] info: application retrived successfully
+2024-01-31T12:59:49.677Z [online-job-service] info: application retrived successfully
+2024-01-31T13:04:20.432Z [online-job-service] info: Entering /api/job/track
+2024-01-31T13:04:20.440Z [online-job-service] info: Entering /api/job/track
+2024-01-31T13:04:20.874Z [online-job-service] info: Job applications saved successfully
+2024-01-31T13:04:20.877Z [online-job-service] info: Job applications saved successfully
+2024-01-31T13:04:20.977Z [online-job-service] info: application retrived successfully
+2024-01-31T13:04:20.994Z [online-job-service] info: application retrived successfully
+2024-01-31T15:25:36.742Z [online-job-service] info: Entering /api/job/track
+2024-01-31T15:25:36.751Z [online-job-service] info: Entering /api/job/track
+2024-01-31T15:25:37.633Z [online-job-service] info: Job applications saved successfully
+2024-01-31T15:25:37.639Z [online-job-service] info: Job applications saved successfully
+2024-01-31T15:25:37.751Z [online-job-service] info: application retrived successfully
+2024-01-31T15:25:37.759Z [online-job-service] info: application retrived successfully
+2024-01-31T15:30:57.904Z [online-job-service] info: Entering /api/job/track
+2024-01-31T15:30:57.918Z [online-job-service] info: Entering /api/job/track
+2024-01-31T15:30:58.444Z [online-job-service] info: Job applications saved successfully
+2024-01-31T15:30:58.555Z [online-job-service] info: application retrived successfully
+2024-01-31T15:30:58.563Z [online-job-service] info: Job applications saved successfully
+2024-01-31T15:30:58.630Z [online-job-service] info: application retrived successfully
+2024-01-31T15:35:51.038Z [online-job-service] info: Entering /api/job/track
+2024-01-31T15:35:51.045Z [online-job-service] info: Entering /api/job/track
+2024-01-31T15:35:51.509Z [online-job-service] info: Job applications saved successfully
+2024-01-31T15:35:51.513Z [online-job-service] info: Job applications saved successfully
+2024-01-31T15:35:51.620Z [online-job-service] info: application retrived successfully
+2024-01-31T15:35:51.634Z [online-job-service] info: application retrived successfully

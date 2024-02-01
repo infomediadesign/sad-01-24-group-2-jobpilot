@@ -200,3 +200,300 @@ SyntaxError: Unexpected identifier
 2024-01-29T19:05:34.906Z [online-job-service] info: Entering /api/job/track
 2024-01-29T19:05:35.370Z [online-job-service] info: Job applications saved successfully
 2024-01-29T19:05:35.502Z [online-job-service] info: application retrived successfully
+2024-01-29T20:00:10.682Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T20:00:11.180Z [online-job-service] info: Connected to MongoDB
+2024-01-29T20:42:01.312Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T20:42:01.776Z [online-job-service] info: Connected to MongoDB
+2024-01-29T20:43:13.549Z [online-job-service] info: Entering /api/job/track
+2024-01-29T20:43:13.790Z [online-job-service] error: Error while retrivig the email id list: AxiosError: Request failed with status code 403
+2024-01-29T20:43:13.792Z [online-job-service] error: Error while retrivig the email messages: TypeError: Cannot read properties of undefined (reading 'messages')
+2024-01-29T20:43:13.795Z [online-job-service] error: Error while building job application details: TypeError: messageObjects is not iterable
+2024-01-29T20:43:13.795Z [online-job-service] error: erroMessage is not defined
+2024-01-29T20:46:59.814Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T20:47:00.278Z [online-job-service] info: Connected to MongoDB
+2024-01-29T20:47:28.890Z [online-job-service] info: Entering /api/job/track
+2024-01-29T20:47:29.104Z [online-job-service] error: Error while retrivig the email id list: AxiosError: Request failed with status code 403
+2024-01-29T20:47:29.107Z [online-job-service] error: Error while retrivig the email messages: TypeError: Cannot read properties of undefined (reading 'messages')
+2024-01-29T20:47:29.109Z [online-job-service] error: Error while building job application details: TypeError: messageObjects is not iterable
+2024-01-29T20:47:29.110Z [online-job-service] error: erroMessage is not defined
+2024-01-29T20:49:31.432Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T20:49:31.906Z [online-job-service] info: Connected to MongoDB
+2024-01-29T20:49:36.288Z [online-job-service] info: Entering /api/job/track
+2024-01-29T20:49:36.725Z [online-job-service] error: Error while retrivig the email id list: AxiosError: Request failed with status code 403
+2024-01-29T20:49:36.726Z [online-job-service] error: Error while retrivig the email messages: TypeError: Cannot read properties of undefined (reading 'messages')
+2024-01-29T20:49:36.727Z [online-job-service] error: Error while building job application details: TypeError: messageObjects is not iterable
+2024-01-29T20:49:36.727Z [online-job-service] error: erroMessage is not defined
+2024-01-29T20:50:42.934Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T20:50:43.339Z [online-job-service] info: Connected to MongoDB
+2024-01-29T20:50:49.778Z [online-job-service] info: Entering /api/job/track
+2024-01-29T20:57:35.930Z [online-job-service] error: Error while retrivig the email id list: AxiosError: Request failed with status code 403
+2024-01-29T20:57:35.942Z [online-job-service] error: Error while retrivig the email messages: TypeError: Cannot read properties of undefined (reading 'messages')
+2024-01-29T20:57:35.942Z [online-job-service] error: Error while building job application details: TypeError: messageObjects is not iterable
+2024-01-29T20:57:35.943Z [online-job-service] error: erroMessage is not defined
+2024-01-29T20:57:46.301Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T20:57:46.797Z [online-job-service] info: Connected to MongoDB
+2024-01-29T21:02:09.170Z [online-job-service] info: Entering /api/job/track
+2024-01-29T21:02:11.618Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:11.806Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:11.981Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:12.176Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:12.352Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:12.519Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:12.701Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:12.877Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:13.069Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:13.235Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:13.482Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:13.649Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:13.812Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:13.975Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:14.185Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:14.356Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:14.572Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:14.744Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:15.169Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:15.343Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:15.528Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:15.690Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:15.868Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:16.042Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:16.210Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:16.382Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:16.549Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:16.729Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:16.894Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:17.061Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:17.233Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:17.404Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:17.579Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:17.747Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:17.943Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:18.115Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:18.280Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:18.446Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:18.620Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:18.796Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:18.966Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:19.153Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:19.343Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:19.513Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:19.675Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:19.859Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:20.027Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:20.205Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:20.365Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:20.535Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:20.713Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:20.879Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:21.050Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:21.214Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:21.415Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:21.597Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:21.838Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:22.024Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:22.213Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:22.368Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:22.536Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:22.706Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:22.873Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:23.031Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:23.195Z [online-job-service] error: Error while getting job applications details from ai-service: AxiosError: Request failed with status code 500 
+2024-01-29T21:02:23.196Z [online-job-service] info: API Request limit reached for online-ai-service. Waiting for 60 seconds...
+2024-01-29T21:04:48.788Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T21:04:49.306Z [online-job-service] info: Connected to MongoDB
+2024-01-29T21:05:22.109Z [online-job-service] info: Entering /api/job/track
+2024-01-29T21:17:23.274Z [online-job-service] info: API Request limit reached for online-ai-service. Waiting for 60 seconds...
+2024-01-29T21:19:57.543Z [online-job-service] error: Error while saving job applications:  job_applications validation failed: company: Path `company` is required.
+2024-01-29T21:19:57.576Z [online-job-service] info: application retrived successfully
+2024-01-29T21:21:51.081Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T21:21:51.581Z [online-job-service] info: Connected to MongoDB
+2024-01-29T21:21:58.111Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T21:21:58.444Z [online-job-service] info: Connected to MongoDB
+2024-01-29T21:22:08.141Z [online-job-service] error: uncaughtException: flase is not defined
+ReferenceError: flase is not defined
+    at Object.<anonymous> (/Users/adithjain/Documents/projects/sad-01-24-group-2-jobpilot/Backend/online-job-service/db/model/schema.js:5:35)
+    at Module._compile (node:internal/modules/cjs/loader:1376:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1435:10)
+    at Module.load (node:internal/modules/cjs/loader:1207:32)
+    at Module._load (node:internal/modules/cjs/loader:1023:12)
+    at Module.require (node:internal/modules/cjs/loader:1235:19)
+    at require (node:internal/modules/helpers:176:18)
+    at Object.<anonymous> (/Users/adithjain/Documents/projects/sad-01-24-group-2-jobpilot/Backend/online-job-service/services/job.services.js:3:33)
+    at Module._compile (node:internal/modules/cjs/loader:1376:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1435:10)
+2024-01-29T21:22:12.665Z [online-job-service] error: uncaughtException: flase is not defined
+ReferenceError: flase is not defined
+    at Object.<anonymous> (/Users/adithjain/Documents/projects/sad-01-24-group-2-jobpilot/Backend/online-job-service/db/model/schema.js:5:35)
+    at Module._compile (node:internal/modules/cjs/loader:1376:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1435:10)
+    at Module.load (node:internal/modules/cjs/loader:1207:32)
+    at Module._load (node:internal/modules/cjs/loader:1023:12)
+    at Module.require (node:internal/modules/cjs/loader:1235:19)
+    at require (node:internal/modules/helpers:176:18)
+    at Object.<anonymous> (/Users/adithjain/Documents/projects/sad-01-24-group-2-jobpilot/Backend/online-job-service/services/job.services.js:3:33)
+    at Module._compile (node:internal/modules/cjs/loader:1376:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1435:10)
+2024-01-29T21:22:17.618Z [online-job-service] error: uncaughtException: flase is not defined
+ReferenceError: flase is not defined
+    at Object.<anonymous> (/Users/adithjain/Documents/projects/sad-01-24-group-2-jobpilot/Backend/online-job-service/db/model/schema.js:5:35)
+    at Module._compile (node:internal/modules/cjs/loader:1376:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1435:10)
+    at Module.load (node:internal/modules/cjs/loader:1207:32)
+    at Module._load (node:internal/modules/cjs/loader:1023:12)
+    at Module.require (node:internal/modules/cjs/loader:1235:19)
+    at require (node:internal/modules/helpers:176:18)
+    at Object.<anonymous> (/Users/adithjain/Documents/projects/sad-01-24-group-2-jobpilot/Backend/online-job-service/services/job.services.js:3:33)
+    at Module._compile (node:internal/modules/cjs/loader:1376:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1435:10)
+2024-01-29T21:22:26.820Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T21:22:27.211Z [online-job-service] info: Connected to MongoDB
+2024-01-29T21:22:40.398Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T21:22:40.761Z [online-job-service] info: Connected to MongoDB
+2024-01-29T21:22:49.962Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T21:22:50.326Z [online-job-service] info: Connected to MongoDB
+2024-01-29T21:28:14.686Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T21:28:15.273Z [online-job-service] info: Connected to MongoDB
+2024-01-29T21:30:13.687Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T21:30:14.180Z [online-job-service] info: Connected to MongoDB
+2024-01-29T21:30:38.701Z [online-job-service] info: Entering /api/job/track
+2024-01-29T21:41:57.913Z [online-job-service] info: API Request limit reached for online-ai-service. Waiting for 60 seconds...
+2024-01-29T22:03:37.849Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T22:03:38.320Z [online-job-service] info: Connected to MongoDB
+2024-01-29T22:03:43.550Z [online-job-service] info: Entering /api/job/track
+2024-01-29T22:03:44.037Z [online-job-service] error: Error while refreshing token: AxiosError: Request failed with status code 500
+2024-01-29T22:03:44.206Z [online-job-service] error: Error while retrivig the email id list: AxiosError: Request failed with status code 401
+2024-01-29T22:03:44.209Z [online-job-service] error: Error while retrivig the email messages: TypeError: Cannot read properties of undefined (reading 'messages')
+2024-01-29T22:03:44.210Z [online-job-service] error: Error while building job application details: TypeError: messageObjects is not iterable
+2024-01-29T22:03:44.211Z [online-job-service] error: erroMessage is not defined
+2024-01-29T22:03:55.195Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T22:03:55.569Z [online-job-service] info: Connected to MongoDB
+2024-01-29T22:05:14.819Z [online-job-service] info: Entering /api/job/track
+2024-01-29T22:05:22.085Z [online-job-service] info: api completed 0
+2024-01-29T22:05:27.490Z [online-job-service] info: api completed 1
+2024-01-29T22:05:33.240Z [online-job-service] info: api completed 2
+2024-01-29T22:05:38.414Z [online-job-service] info: api completed 3
+2024-01-29T22:05:47.061Z [online-job-service] info: api completed 4
+2024-01-29T22:05:54.196Z [online-job-service] info: api completed 5
+2024-01-29T22:06:01.559Z [online-job-service] info: api completed 6
+2024-01-29T22:06:08.259Z [online-job-service] info: api completed 7
+2024-01-29T22:06:15.305Z [online-job-service] info: api completed 8
+2024-01-29T22:06:20.710Z [online-job-service] info: api completed 9
+2024-01-29T22:06:26.576Z [online-job-service] info: api completed 10
+2024-01-29T22:06:32.016Z [online-job-service] info: api completed 11
+2024-01-29T22:06:37.340Z [online-job-service] info: api completed 12
+2024-01-29T22:06:44.001Z [online-job-service] info: api completed 13
+2024-01-29T22:06:50.447Z [online-job-service] info: api completed 14
+2024-01-29T22:06:55.876Z [online-job-service] info: api completed 15
+2024-01-29T22:07:01.408Z [online-job-service] info: api completed 16
+2024-01-29T22:07:08.951Z [online-job-service] info: api completed 17
+2024-01-29T22:07:14.159Z [online-job-service] info: api completed 18
+2024-01-29T22:07:20.658Z [online-job-service] info: api completed 19
+2024-01-29T22:13:05.203Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T22:13:05.555Z [online-job-service] info: Connected to MongoDB
+2024-01-29T22:13:10.216Z [online-job-service] info: Entering /api/job/track
+2024-01-29T22:13:16.880Z [online-job-service] info: api completed 0
+2024-01-29T22:13:22.030Z [online-job-service] info: api completed 1
+2024-01-29T22:13:27.252Z [online-job-service] info: api completed 2
+2024-01-29T22:13:32.829Z [online-job-service] info: api completed 3
+2024-01-29T22:13:37.963Z [online-job-service] info: api completed 4
+2024-01-29T22:13:43.125Z [online-job-service] info: api completed 5
+2024-01-29T22:13:48.245Z [online-job-service] info: api completed 6
+2024-01-29T22:13:53.464Z [online-job-service] info: api completed 7
+2024-01-29T22:13:58.485Z [online-job-service] info: api completed 8
+2024-01-29T22:14:03.808Z [online-job-service] info: api completed 9
+2024-01-29T22:14:08.519Z [online-job-service] info: api completed 10
+2024-01-29T22:14:15.277Z [online-job-service] info: api completed 11
+2024-01-29T22:14:21.831Z [online-job-service] info: api completed 12
+2024-01-29T22:14:28.488Z [online-job-service] info: api completed 13
+2024-01-29T22:14:33.812Z [online-job-service] info: api completed 14
+2024-01-29T22:14:38.934Z [online-job-service] info: api completed 15
+2024-01-29T22:14:44.974Z [online-job-service] info: api completed 16
+2024-01-29T22:14:51.324Z [online-job-service] info: api completed 17
+2024-01-29T22:14:57.773Z [online-job-service] info: api completed 18
+2024-01-29T22:15:04.087Z [online-job-service] info: api completed 19
+2024-01-29T22:15:09.448Z [online-job-service] info: api completed 20
+2024-01-29T22:15:15.962Z [online-job-service] info: api completed 21
+2024-01-29T22:15:22.307Z [online-job-service] info: api completed 22
+2024-01-29T22:15:28.701Z [online-job-service] info: api completed 23
+2024-01-29T22:15:33.752Z [online-job-service] info: api completed 24
+2024-01-29T22:15:39.553Z [online-job-service] info: api completed 25
+2024-01-29T22:15:44.839Z [online-job-service] info: api completed 26
+2024-01-29T22:15:50.306Z [online-job-service] info: api completed 27
+2024-01-29T22:15:55.356Z [online-job-service] info: api completed 28
+2024-01-29T22:16:01.983Z [online-job-service] info: api completed 29
+2024-01-29T22:16:07.371Z [online-job-service] info: api completed 30
+2024-01-29T22:16:13.278Z [online-job-service] info: api completed 31
+2024-01-29T22:16:18.773Z [online-job-service] info: api completed 32
+2024-01-29T22:16:25.225Z [online-job-service] info: api completed 33
+2024-01-29T22:16:31.470Z [online-job-service] info: api completed 34
+2024-01-29T22:16:36.865Z [online-job-service] info: api completed 35
+2024-01-29T22:16:41.966Z [online-job-service] info: api completed 36
+2024-01-29T22:16:47.120Z [online-job-service] info: api completed 37
+2024-01-29T22:16:52.565Z [online-job-service] info: api completed 38
+2024-01-29T22:16:57.789Z [online-job-service] info: api completed 39
+2024-01-29T22:17:03.848Z [online-job-service] info: api completed 40
+2024-01-29T22:17:09.044Z [online-job-service] info: api completed 41
+2024-01-29T22:17:14.276Z [online-job-service] info: api completed 42
+2024-01-29T22:17:20.725Z [online-job-service] info: api completed 43
+2024-01-29T22:17:27.482Z [online-job-service] info: api completed 44
+2024-01-29T22:17:34.245Z [online-job-service] info: api completed 45
+2024-01-29T22:17:39.976Z [online-job-service] info: api completed 46
+2024-01-29T22:17:44.817Z [online-job-service] info: api completed 47
+2024-01-29T22:17:49.865Z [online-job-service] info: api completed 48
+2024-01-29T22:17:54.975Z [online-job-service] info: api completed 49
+2024-01-29T22:18:00.155Z [online-job-service] info: api completed 50
+2024-01-29T22:18:05.254Z [online-job-service] info: api completed 51
+2024-01-29T22:18:10.182Z [online-job-service] info: api completed 52
+2024-01-29T22:18:15.507Z [online-job-service] info: api completed 53
+2024-01-29T22:18:20.627Z [online-job-service] info: api completed 54
+2024-01-29T22:18:26.268Z [online-job-service] info: api completed 55
+2024-01-29T22:18:31.379Z [online-job-service] info: api completed 56
+2024-01-29T22:18:36.690Z [online-job-service] info: api completed 57
+2024-01-29T22:18:42.237Z [online-job-service] info: api completed 58
+2024-01-29T22:18:47.824Z [online-job-service] info: api completed 59
+2024-01-29T22:18:54.750Z [online-job-service] info: api completed 60
+2024-01-29T22:18:59.847Z [online-job-service] info: api completed 61
+2024-01-29T22:19:05.174Z [online-job-service] info: api completed 62
+2024-01-29T22:19:11.567Z [online-job-service] info: api completed 63
+2024-01-29T22:19:17.353Z [online-job-service] info: api completed 64
+2024-01-29T22:19:17.356Z [online-job-service] info: API Request limit reached for online-ai-service. Waiting for 60 seconds...
+2024-01-29T22:20:23.819Z [online-job-service] info: api completed 0
+2024-01-29T22:20:29.021Z [online-job-service] info: api completed 1
+2024-01-29T22:20:35.880Z [online-job-service] info: api completed 2
+2024-01-29T22:20:41.431Z [online-job-service] info: api completed 3
+2024-01-29T22:20:47.781Z [online-job-service] info: api completed 4
+2024-01-29T22:20:54.642Z [online-job-service] info: api completed 5
+2024-01-29T22:21:01.401Z [online-job-service] info: api completed 6
+2024-01-29T22:21:06.929Z [online-job-service] info: api completed 7
+2024-01-29T22:21:13.577Z [online-job-service] info: api completed 8
+2024-01-29T22:21:19.932Z [online-job-service] info: api completed 9
+2024-01-29T22:21:26.285Z [online-job-service] info: api completed 10
+2024-01-29T22:21:31.341Z [online-job-service] info: api completed 11
+2024-01-29T22:21:37.822Z [online-job-service] info: api completed 12
+2024-01-29T22:21:43.320Z [online-job-service] info: api completed 13
+2024-01-29T22:21:48.252Z [online-job-service] info: api completed 14
+2024-01-29T22:21:48.253Z [online-job-service] info: [object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+2024-01-29T22:21:48.369Z [online-job-service] info: Job applications saved successfully
+2024-01-29T22:21:48.417Z [online-job-service] info: application retrived successfully
+2024-01-29T22:22:37.473Z [online-job-service] info: Entering /api/job/track
+2024-01-29T22:22:38.149Z [online-job-service] info: 
+2024-01-29T22:22:38.151Z [online-job-service] info: Job applications saved successfully
+2024-01-29T22:22:38.208Z [online-job-service] info: application retrived successfully
+2024-01-29T22:28:59.837Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T22:29:00.300Z [online-job-service] info: Connected to MongoDB
+2024-01-29T22:29:04.474Z [online-job-service] info: Entering /api/job/track
+2024-01-29T22:29:45.813Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T22:29:46.166Z [online-job-service] info: Connected to MongoDB
+2024-01-29T22:29:55.073Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T22:29:55.725Z [online-job-service] info: Connected to MongoDB
+2024-01-29T22:29:59.686Z [online-job-service] info: Entering /api/job/track
+2024-01-29T22:30:29.354Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T22:30:29.909Z [online-job-service] info: Connected to MongoDB
+2024-01-29T22:31:17.498Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T22:31:17.839Z [online-job-service] info: Connected to MongoDB
+2024-01-29T22:31:24.021Z [online-job-service] info: Entering /api/job/track
+2024-01-29T22:32:01.661Z [online-job-service] info: Server running in development mode on port 4001
+2024-01-29T22:32:02.071Z [online-job-service] info: Connected to MongoDB
+2024-01-29T22:32:03.564Z [online-job-service] info: Entering /api/job/track
+2024-01-29T22:32:03.861Z [online-job-service] info: Job applications saved successfully
+2024-01-29T22:32:03.926Z [online-job-service] info: application retrived successfully
