@@ -1,13 +1,19 @@
 const { OAuth2Client } = require('google-auth-library');
+const { getClientIdentityTokens } = require('../services/auth.services');
 const { logger } = require('../middleware/logging');
 
-const oAuth2Client = new OAuth2Client({
-    clientId: '444846798337-k9c1hgoprt0vbv2n4oh9b408jb0co8kp.apps.googleusercontent.com',
-    clientSecret: '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',
-    redirectUri: process.env.GOOGLE_CALLBACK_URL,
-    // clientId: '925596356512-uasm5jslub0i457dhfsk2tlgkvhh4li7.apps.googleusercontent.com',
-    // clientSecret: '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',
-    // redirectUri: process.env.GOOGLE_CALLBACK_URL,
-});
+const createOAuth2Client = async () => {
+    try {
+        const { googleClientId, googleClientSecret } = await getClientIdentityTokens();
+        const oAuth2Client = new OAuth2Client({
+            clientId: googleClientId,
+            clientSecret: googleClientSecret,
+            redirectUri: process.env.GOOGLE_CALLBACK_URL,
+        });
+        return oAuth2Client;
+    } catch (err) {
+        logger.error(`Error while initializing OAuth2Client: ${err} `);
+    }
+};
 
-module.exports = oAuth2Client;
+module.exports = { createOAuth2Client };
