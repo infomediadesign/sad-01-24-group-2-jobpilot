@@ -6,6 +6,8 @@ const authRoutes = require('./routes/auth.router');
 const session = require('express-session');
 const loadSwaggerSpec = require('./middleware/swagger');
 const app = express();
+const cors = require('cors');
+
 
 app.use(cors());
 
@@ -31,6 +33,7 @@ app.use(express.json(), (err, req, res, next) => {
     next();
 });
 
+app.use(cors());
 const swaggerSpec = loadSwaggerSpec();
 
 app.use('/swagger-ui', swaggerUi.serve, swaggerUi.setup(swaggerSpec));

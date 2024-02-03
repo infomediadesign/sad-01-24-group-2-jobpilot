@@ -1,5 +1,5 @@
 import React from 'react';
-import appLogo from '../assets/logoName.png'; // Adjust the path as needed
+import appLogo from '../assets/logoJobpilot.png'; // Adjust the path as needed
 import profilePic from '../assets/logoElement.png'; // Adjust the path as needed
 import '../styles/Header.css';
 
