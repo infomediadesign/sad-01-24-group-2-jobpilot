@@ -6,18 +6,8 @@ const authRoutes = require('./routes/auth.router');
 const session = require('express-session');
 const loadSwaggerSpec = require('./middleware/swagger');
 const app = express();
-const cors = require('cors');
-
 
 app.use(cors());
-
-app.use(
-    session({
-        secret: process.env.SESSION_TOKEN,
-        resave: true,
-        saveUninitialized: true,
-    })
-);
 
 app.use(express.json(), (err, req, res, next) => {
     if (err instanceof SyntaxError && err.status === 400 && 'body' in err) {
