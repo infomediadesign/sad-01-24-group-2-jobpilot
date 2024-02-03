@@ -78,7 +78,7 @@ const AssistantAI = ({ messages, setMessages }) => {
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           onKeyDown={handleKeyDown}
-          placeholder="Enter a prompt here"
+          placeholder="Message Assistant AI..."
         />
         <button className="send-button" onClick={sendMessage}>
           <FontAwesomeIcon icon={faPaperPlane} />
