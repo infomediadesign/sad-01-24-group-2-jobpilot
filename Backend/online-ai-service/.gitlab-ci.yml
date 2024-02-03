@@ -1,0 +1,41 @@
+stages: # List of stages for jobs, and their order of execution
+  - install
+  - connect
+  - quality
+
+install:
+  stage: install
+  image: node:14.18.1-alpine
+  script:
+    - npm install
+  artifacts:
+    name: 'artifacts'
+    untracked: true
+    expire_in: 30 mins
+    paths:
+      - .npm/
+      - node_modules/
+
+lint:
+  stage: quality
+  image: node:14.18.1-alpine
+  needs: ['install']
+  dependencies:
+    - install
+  script:
+    - npm run lint
+
+API test:
+  stage: quality
+  image: node:14.18.1-alpine
+  needs: ['install']
+  dependencies:
+    - install
+  script:
+    - npm run test
+  coverage: /All\sfiles.*?\s+(\d+.\d+)/
+  artifacts:
+    when: always
+    reports:
+      junit:
+        - junit.xml

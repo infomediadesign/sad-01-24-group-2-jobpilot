@@ -1,0 +1,159 @@
+openapi: 3.0.0
+info:
+  title: Assistant AI API's
+  version: 1.0.0
+paths:
+  /api/ai/chat:
+    post:
+      summary: Assistant AI Chat API
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatRequestBody'
+              type: object
+              properties:
+                question:
+                  type: string
+                  example: 'Hi'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatSuccessResponse'
+              example: { 'response': 'Hello! How can I assist you with your job search today?' }
+        '400':
+          description: BAD REQUEST
+          content:
+            application/json:
+              example:
+                {
+                  'timestamp': '2024-01-29T17:31:22.228Z',
+                  'status': 400,
+                  'error': 'Bad Request',
+                  'message':
+                    [{ 'msg': 'Qustion is required', 'param': 'question', 'location': 'body' }],
+                  'path': '/api/ai/chat',
+                }
+        '500':
+          description: INTERNAL SERVER ERROR
+          content:
+            application/json:
+              example:
+                {
+                  'timestamp': '2024-01-17T02:40:35.512Z',
+                  'status': 500,
+                  'error': 'Internal Server Error',
+                  'message': 'Some Error Message',
+                  'path': '/api/ai/chat',
+                }
+
+  /api/ai/job/application/details:
+    post:
+      summary: Assistant AI Job Application Details API
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApplicationRequestBody'
+              type: object
+              properties:
+                message:
+                  type: string
+                  example: 'id: 18d545, email: maheshnidugala@gmail.com, date:Sun, 21 May 2023 14:38:59 +0200 (CEST), Subject: Working Student / Intern (f/m/d) - Project Management, Dear Mahesh Nidugala,Thank you for your application.'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationSuccessResponse'
+              example:
+                {
+                  'id': '18d545',
+                  'email': 'maheshnidugala@gmail.com',
+                  'date': 'Sun, 21 May 2023 14:38:59 +0200 (CEST)',
+                  'company': 'example',
+                  'position': 'Working Student / Intern (f/m/d) - Project Management',
+                  'status': 'Application Submitted',
+                }
+        '400':
+          description: BAD REQUEST
+          content:
+            application/json:
+              example:
+                {
+                  'timestamp': '2024-01-29T17:31:22.228Z',
+                  'status': 400,
+                  'error': 'Bad Request',
+                  'message':
+                    [{ 'msg': 'Message is required', 'param': 'message', 'location': 'body' }],
+                  'path': '/api/ai/job/application/details',
+                }
+        '500':
+          description: INTERNAL SERVER ERROR
+          content:
+            application/json:
+              example:
+                {
+                  'timestamp': '2024-01-17T02:40:35.512Z',
+                  'status': 500,
+                  'error': 'Internal Server Error',
+                  'message': 'Some Error Message',
+                  'path': '/api/ai/job/application/details',
+                }
+
+  /api/ai/create-thread:
+    post:
+      summary: Assistant AI Create Thread API
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateThreadSuccessResponse'
+              example: { 'threadId': 'eded5deew78dhxn_yyusuiys32' }
+        '500':
+          description: INTERNAL SERVER ERROR
+          content:
+            application/json:
+              example:
+                {
+                  'timestamp': '2024-01-17T02:40:35.512Z',
+                  'status': 500,
+                  'error': 'Internal Server Error',
+                  'message': 'Error in creating new thread',
+                  'path': '/api/ai/create-thread',
+                }
+components:
+  schemas:
+    ChatRequestBody:
+      type: object
+      properties:
+        question:
+          type: string
+    ChatSuccessResponse:
+      type: object
+      properties:
+        response:
+          type: string
+    ApplicationRequestBody:
+      type: object
+      properties:
+        message:
+          type: string
+    ApplicationSuccessResponse:
+      type: object
+      properties:
+        response:
+          type: string
+    CreateThreadSuccessResponse:
+      type: object
+      properties:
+        threadId:
+          type: string
