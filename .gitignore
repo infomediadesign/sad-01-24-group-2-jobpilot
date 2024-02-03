@@ -14,3 +14,10 @@
 /Backend/online-job-service/tests/coverage
 
 node_modules
+
+/Backend/online-auth-service/junit.xml
+
+/Backend/online-job-service/junit.xml
+
+/Backend/online-ai-service/junit.xml
+
