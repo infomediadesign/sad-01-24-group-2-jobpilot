@@ -84,7 +84,7 @@ describe('POST /api/auth/register', () => {
 });
 
 describe('POST /api/auth/login', () => {
-    test('api to return 200 ok response', async () => {
+    test('api to return 200 success response', async () => {
         const mockRequest = {
             email: 'mahesh.nidugala19@gmail.com',
             password: 'Mahesh',
