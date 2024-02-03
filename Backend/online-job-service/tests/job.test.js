@@ -48,7 +48,7 @@ describe('refreshAccessToken', () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-            },
+            }
         );
     });
 });
@@ -84,7 +84,7 @@ describe('getEmailIds', () => {
                     Authorization: `Bearer ${accessToken}`,
                     'Content-Type': 'application/json',
                 },
-            },
+            }
         );
     });
 });
@@ -117,7 +117,7 @@ describe('getEmailMessageLists', () => {
                     Authorization: `Bearer ${accessToken}`,
                     'Content-Type': 'application/json',
                 },
-            },
+            }
         );
     });
 });

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="5" failures="0" errors="0" time="10.936">
+  <testsuite name="POST /api/ai/chat" errors="0" failures="0" skipped="0" timestamp="2024-02-03T17:00:11" time="10.862" tests="5">
+    <testcase classname="POST /api/ai/chat api to return 200 success response" name="POST /api/ai/chat api to return 200 success response" time="3.041">
+    </testcase>
+    <testcase classname="POST /api/ai/chat api to return 400 bad request response" name="POST /api/ai/chat api to return 400 bad request response" time="0.001">
+    </testcase>
+    <testcase classname="POST /api/ai/job/application/details api to return 200 success response" name="POST /api/ai/job/application/details api to return 200 success response" time="5.357">
+    </testcase>
+    <testcase classname="POST /api/ai/job/application/details api to return 400 bad request response" name="POST /api/ai/job/application/details api to return 400 bad request response" time="0">
+    </testcase>
+    <testcase classname="POST /api/ai/create-thread api to return 200 success response" name="POST /api/ai/create-thread api to return 200 success response" time="0.215">
+    </testcase>
+  </testsuite>
+</testsuites>
