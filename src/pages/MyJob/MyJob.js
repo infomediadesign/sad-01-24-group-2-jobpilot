@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import AppWidgetSummary from './MyJobWidgetSummary.js';
 import AppCurrentVisits from './MyJobCurrentVisits.js';
 import MyJobView from './TableView/myjob-view.js';
+import bagIcon from '../../assets/icons/glass/ic_glass_bag.png';
 
 
 const categorizeStatus = (status) => {
@@ -59,43 +60,20 @@ const calculateCategorizedStatusCounts = (data) => {
 };
 
 
-// const calculateStatusSummary = (data) => {
-//   let totalObjects = 0;
-//   let statusCounts = {};
-  
-//   data.forEach((item) => {
-//     totalObjects++;
-//     const status = item.status;
-//     if (statusCounts[status]) {
-//       statusCounts[status]++;
-//     } else {
-//       statusCounts[status] = 1;
-//     }
-//   });
-
-//   const summary = {
-//     totalObjects,
-//     statusCounts,
-//   };
-
-//   return summary;
-// };
 
 export default function MyJob(props) {
   const { myJobData } = props;
   const result = calculateCategorizedStatusCounts(myJobData);
-  console.log('result--------->',result);
 
   const chartData = Object.keys(result).map((category) => ({
     label: category,
     value: result[category],
   }));
 
-console.log("chartData-------------->",chartData)
+
   return (
     <Container maxWidth="xl">
     <Typography variant="h4" sx={{ mb: 5 }}>
-      Hi, Welcome To My Job 👋
     </Typography>
 
     <Grid container spacing={3}>
@@ -104,7 +82,7 @@ console.log("chartData-------------->",chartData)
           title="Applied Applications"
           total={result.Applied}
           color="success"
-          icon={<img alt="icon" src="/assets/icons/glass/ic_glass_bag.png" />}
+          icon={<img alt="icon" src={bagIcon} />}
         />
       </Grid>
 
@@ -113,7 +91,7 @@ console.log("chartData-------------->",chartData)
           title="Application In progress"
           total={result.InProgress}
           color="info"
-          icon={<img alt="icon" src="/assets/icons/glass/ic_glass_users.png" />}
+          icon={<img alt="icon" src={bagIcon} />}
         />
       </Grid>
 
@@ -122,7 +100,7 @@ console.log("chartData-------------->",chartData)
           title="Interviews Given"
           total={result.Interviews}
           color="warning"
-          icon={<img alt="icon" src="/assets/icons/glass/ic_glass_buy.png" />}
+          icon={<img alt="icon" src={bagIcon} />}
         />
       </Grid>
 
@@ -131,7 +109,7 @@ console.log("chartData-------------->",chartData)
           title="Rejection"
           total={result.Rejected}
           color="error"
-          icon={<img alt="icon" src="/assets/icons/glass/ic_glass_message.png" />}
+          icon={<img alt="icon" src={bagIcon} />}
         />
       </Grid>
 
