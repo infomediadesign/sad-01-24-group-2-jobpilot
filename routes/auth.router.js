@@ -7,10 +7,21 @@ const {
     checkIsValidPassword,
 } = require('../services/auth.services');
 const { generateJwtToken } = require('../middleware/jwt.auth');
-const oAuth2Client = require('../middleware/google.auth');
+const { createOAuth2Client } = require('../middleware/google.auth');
 const { default: axios } = require('axios');
 
 const router = new Router();
+
+let oAuth2Client;
+
+(async () => {
+    try {
+        oAuth2Client = await createOAuth2Client();
+    } catch (err) {
+        logger.error('Error initializing OAuth2Client:', err);
+        process.exit(1);
+    }
+})();
 
 const validateRegisterRequiredFields = [
     body('user.firstname').notEmpty().withMessage('First name is required.'),
