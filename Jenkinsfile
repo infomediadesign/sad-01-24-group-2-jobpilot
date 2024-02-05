@@ -13,6 +13,11 @@ pipeline {
                 bat 'npm run test'
             }
         }
+        stage('Deploy') {
+            steps {
+                bat 'heroku login -i'
+            }
+        }
        
     }
 }
