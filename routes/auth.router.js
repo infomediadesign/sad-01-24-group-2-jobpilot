@@ -151,7 +151,7 @@ router.get('/google/callback', async (req, res) => {
     try {
         const { code } = req.query;
         const { tokens } = await oAuth2Client.getToken(code);
-        const userInfo = await axios.get('https://www.googleapis.com/oauth2/v1/userinfo', {
+        const userInfo = await axios.get(process.env.GOOGLE_USER_INFO_URL, {
             headers: {
                 Authorization: `Bearer ${tokens.access_token}`,
                 'Content-Type': 'application/json',
