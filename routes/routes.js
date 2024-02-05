@@ -10,6 +10,7 @@ router.get('/', (req, res) => {
 });
 
 
+
 router.use('/api/auth', require('./auth.router'));
 
 module.exports = router;
