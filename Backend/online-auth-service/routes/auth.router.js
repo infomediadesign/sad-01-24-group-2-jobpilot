@@ -167,7 +167,7 @@ router.get('/google/callback', async (req, res) => {
             };
             await saveRegisteredUsers(userData);
         }
-        logger.info('access token:', tokens.access_token);
+
         res.cookie('access_token', tokens.access_token);
         res.cookie('refresh_token', tokens.refresh_token);
         res.cookie('expiry_date', tokens.expiry_date);
@@ -177,6 +177,7 @@ router.get('/google/callback', async (req, res) => {
         res.cookie('lastname', userInfo.data.family_name);
         res.redirect('http://localhost:3000/dashboard');
         logger.info('Authentication successful!');
+        logger.info('access token:', tokens.access_token);
     } catch (err) {
         logger.error(err);
         return res.status(500).json({
