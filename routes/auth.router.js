@@ -157,6 +157,7 @@ router.get('/google/callback', async (req, res) => {
                 'Content-Type': 'application/json',
             },
         });
+
         const isUserExists = await checkUserExists(userInfo.data.email);
         if (!isUserExists) {
             const userData = {
