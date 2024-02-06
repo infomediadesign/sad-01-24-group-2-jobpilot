@@ -24,7 +24,7 @@ pipeline {
                         bat '"C:\\Program Files\\Heroku\\bin\\heroku" auth:token' 
                         bat '"C:\\Program Files\\Heroku\\bin\\heroku" auth:whoami'
                         bat '"C:\\Program Files\\Heroku\\bin\\heroku" git:remote -a online-auth-service'
-                        bat 'git push heroku online-auth-service-deployment:main'
+                        bat 'git push origin online-auth-service-deployment'
                       
                     }
                      
