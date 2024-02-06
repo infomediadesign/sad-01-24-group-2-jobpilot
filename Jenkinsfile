@@ -27,7 +27,7 @@ pipeline {
                         bat 'git config --global user.email "maheshn.nidugala@gmail.com"'
                         bat 'git add .'
                         bat 'git commit -m "Automated deployment"'
-                        bat 'git push heroku online-auth-service-deployment:main'
+                        bat 'git push "C:\\Program Files\\Heroku\\bin\\heroku" online-auth-service-deployment:main'
                       
                     }
                      
