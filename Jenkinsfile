@@ -30,6 +30,7 @@ pipeline {
                         bat 'git commit -m "Automated deployment"'
                         bat 'git checkout online-auth-service-deployment'
                         bat 'git pull'
+                        bat 'GIT_TRACE=1 git push heroku online-auth-service-deployment:main'
                         bat 'git push heroku online-auth-service-deployment:main'
                       
                     }
