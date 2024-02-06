@@ -24,10 +24,12 @@ pipeline {
                         bat '"C:\\Program Files\\Heroku\\bin\\heroku" auth:token:set $HEROKU_API_KEY' 
                         bat '"C:\\Program Files\\Heroku\\bin\\heroku" auth:whoami'
                         bat '"C:\\Program Files\\Heroku\\bin\\heroku" git:remote -a online-auth-service'
+                        bat '"C:\\Program Files\\Heroku\\bin\\heroku" git remote -v'
                         bat 'git config --global user.email "maheshn.nidugala@gmail.com"'
+                        bat 'git checkout online-auth-service-deployment'
                         bat 'git add .'
                         bat 'git commit -m "Automated deployment"'
-                        bat 'git push heroku master'
+                        bat 'git push heroku online-auth-service-deployment:main'
                       
                     }
                      
