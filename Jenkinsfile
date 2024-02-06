@@ -2,9 +2,6 @@
 pipeline {
     agent any
    
-   environment {
-        HEROKU_API_KEY = credentials('heroku-api-key')
-    }
 
     stages {
 
@@ -22,8 +19,8 @@ pipeline {
             steps {
                 script {
                     
-                        bat 'git checkout online-auth-service-deployment'
-                        bat 'git push --verbose origin online-auth-service-deployment'
+                    git checkout online-auth-service-deployment
+                    git push --verbose origin online-auth-service-deployment
                       
                     
                      
