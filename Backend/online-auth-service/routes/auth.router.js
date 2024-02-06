@@ -167,49 +167,46 @@ router.get('/google/callback', async (req, res) => {
             };
             await saveRegisteredUsers(userData);
         }
+        res.header('Access-Control-Allow-Origin', 'https://jobpilot-fb225ee580d2.herokuapp.com');
+        res.header('Access-Control-Allow-Credentials', true);
+        res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+        res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
         res.cookie('access_token', tokens.access_token, {
             secure: true,
             domain: 'jobpilot-fb225ee580d2.herokuapp.com',
             sameSite: 'Lax',
-            httpOnly: true,
         });
         res.cookie('refresh_token', tokens.refresh_token, {
             secure: true,
             domain: 'jobpilot-fb225ee580d2.herokuapp.com',
             sameSite: 'Lax',
-            httpOnly: true,
         });
         res.cookie('expiry_date', tokens.expiry_date, {
             secure: true,
             domain: 'jobpilot-fb225ee580d2.herokuapp.com',
             sameSite: 'Lax',
-            httpOnly: true,
         });
         res.cookie('email', userInfo.data.email, {
             secure: true,
             domain: 'jobpilot-fb225ee580d2.herokuapp.com',
             sameSite: 'Lax',
-            httpOnly: true,
         });
         res.cookie('profile_picture', userInfo.data.picture, {
             secure: true,
             domain: 'jobpilot-fb225ee580d2.herokuapp.com',
             sameSite: 'Lax',
-            httpOnly: true,
         });
         res.cookie('firstname', userInfo.data.given_name, {
             secure: true,
             domain: 'jobpilot-fb225ee580d2.herokuapp.com',
-            sameSite: 'Lax',
         });
         res.cookie('lastname', userInfo.data.family_name, {
             secure: true,
             domain: 'jobpilot-fb225ee580d2.herokuapp.com',
             sameSite: 'Lax',
-            httpOnly: true,
         });
-        res.send('Google Authenticated');
+        res.redirect('https://jobpilot-fb225ee580d2.herokuapp.com');
     } catch (err) {
         logger.error(err);
         return res.status(500).json({
