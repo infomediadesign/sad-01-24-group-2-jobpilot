@@ -20,7 +20,8 @@ pipeline {
         stage('Deploy') {
             steps {
              withCredentials([string(credentialsId: 'heroku-api-key', variable: 'HEROKU_API_KEY')]) {
-                        bat 'heroku login -i'
+                def herokuCliPath= "C:\\Program Files\\heroku\\bin\\heroku"
+                        bat '${herokuCliPath} login -i'
                     }
             }
         }
