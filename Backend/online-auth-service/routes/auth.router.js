@@ -177,7 +177,7 @@ router.get('/google/callback', async (req, res) => {
         res.cookie('lastname', userInfo.data.family_name);
         res.redirect('http://localhost:3000/dashboard');
         logger.info('Authentication successful!');
-        logger.info('access token:', tokens.access_token);
+        console.log(`access token: ${tokens.access_token}`);
     } catch (err) {
         logger.error(err);
         return res.status(500).json({
