@@ -2,9 +2,6 @@ openapi: 3.0.0
 info:
   title: Authentication API's
   version: 1.0.0
-servers:
-  - url: http://localhost:4000
-    description: localhost server
 paths:
   /api/auth/register:
     post:
@@ -110,6 +107,76 @@ paths:
                   'message': 'Some Error Message',
                   'path': '/api/auth/login',
                 }
+  /api/auth/google:
+    get:
+      summary: OAuth 2.0 API
+      responses:
+        '200':
+          description: OK
+          content:
+            text/html:
+              example: '<html><body>HTML Content</body></html>'
+        '500':
+          description: INTERNAL SERVER ERROR
+          content:
+            application/json:
+              example:
+                {
+                  'timestamp': '2024-01-17T02:40:35.512Z',
+                  'status': 500,
+                  'error': 'Internal Server Error',
+                  'message': 'Some Error Message',
+                  'path': '/api/auth/google',
+                }
+  /api/auth/refresh/token:
+    post:
+      summary: OAuth 2.0 Access token refresh API
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefreshTokenRequestBody'
+              type: object
+              properties:
+                expiryDate:
+                  type: string
+                  example: ''
+                refreshToken:
+                  type: string
+                  example: ''
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RefreshTokenSuccessResponse'
+              example: 'Access Token refreshed'
+        '400':
+          description: BAD REQUEST
+          content:
+            application/json:
+              example:
+                {
+                  'timestamp': '2024-01-17T02:40:35.512Z',
+                  'status': 400,
+                  'error': 'Bad Request',
+                  'message': 'Invalid Json Format or Request body missing',
+                  'path': '/api/auth/refresh/token',
+                }
+        '500':
+          description: INTERNAL SERVER ERROR
+          content:
+            application/json:
+              example:
+                {
+                  'timestamp': '2024-01-17T02:40:35.512Z',
+                  'status': 500,
+                  'error': 'Internal Server Error',
+                  'message': 'Some Error Message',
+                  'path': '/api/auth/refresh/token',
+                }
 components:
   schemas:
     RegistrationRequestBody:
@@ -145,3 +212,12 @@ components:
       properties:
         token:
           type: string
+    RefreshTokenRequestBody:
+      type: object
+      properties:
+        expiryDate:
+          type: string
+        refreshToken:
+          type: string
+    RefreshTokenSuccessResponse:
+      type: string

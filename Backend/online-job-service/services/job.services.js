@@ -14,13 +14,43 @@ const saveJobApplications = async jobApplicationsData => {
 
 const getJobApplications = async email => {
     try {
-        const jobApplications = await JobApplicationModel.find({ email: email }).select(
-            '-_id -__v'
-        );
-        logger.info(`application retrived successfully`);
+        const jobApplications = await JobApplicationModel.aggregate([
+            {
+                $match: {
+                    email: email,
+                },
+            },
+            {
+                $sort: {
+                    company: 1,
+                    position: 1,
+                    date: -1,
+                },
+            },
+            {
+                $group: {
+                    _id: {
+                        company: '$company',
+                        position: '$position',
+                    },
+                    latestApplication: { $first: '$$ROOT' },
+                },
+            },
+            {
+                $replaceRoot: { newRoot: '$latestApplication' },
+            },
+            {
+                $project: {
+                    _id: 0,
+                    __v: 0,
+                },
+            },
+        ]);
+
+        logger.info(`Applications retrieved successfully`);
         return jobApplications;
     } catch (err) {
-        logger.error(`Error while getting job applications from database: ${err} `);
+        logger.error(`Error while getting job applications from database: ${err}`);
     }
 };
 
@@ -40,7 +70,7 @@ const getIdsFromApplications = async email => {
 const getJobApplicationDetails = async message => {
     try {
         const { data } = await axios.post(
-            `${process.env.ONLINE_AI_SERVICE_URL}ai/job/details`,
+            `${process.env.ONLINE_AI_SERVICE_URL}job/application/details`,
             {
                 message,
             },
@@ -55,6 +85,7 @@ const getJobApplicationDetails = async message => {
         logger.error(`Error while getting job applications details from ai-service: ${err} `);
     }
 };
+ 
 
 const refreshAccessToken = async (expiryDate, refreshToken) => {
     try {
@@ -92,6 +123,34 @@ const getEmailIds = async (email, accessToken, emailQueryString) => {
     }
 };
 
+const getEmailMessageLists = async (email, accessToken, messageId) => {
+    try {
+        const emailMessageList = await axios.get(
+            `${process.env.GOOGLE_API_URL}${email}/messages/${messageId}`,
+            {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
+                    'Content-Type': 'application/json',
+                },
+            }
+        );
+        const emailMessage = emailMessageList.data;
+        const messageData = await getFilteredEmailMessages(emailMessage);
+
+        return {
+            message: `id: ${emailMessage.id}, email:${email}, date: ${
+                emailMessage.payload.headers.find(header => header.name === 'Date').value
+            }, Subject: ${
+                emailMessage.payload.headers.find(header => header.name === 'Subject').value +
+                ` -- ` +
+                messageData
+            }`,
+        };
+    } catch (err) {
+        logger.error(`Error while retrivig the email message list: ${err}`);
+    }
+};
+
 const getEmailMessages = async (email, accessToken, expiryDate, refreshToken, emailQueryString) => {
     try {
         await refreshAccessToken(expiryDate, refreshToken);
@@ -101,30 +160,9 @@ const getEmailMessages = async (email, accessToken, expiryDate, refreshToken, em
             msg => !arrayOfIds.includes(msg.id)
         );
         const messageObjects = await Promise.all(
-            filteredEmailIdList.map(async emailIds => {
-                const emailMessageList = await axios.get(
-                    `${process.env.GOOGLE_API_URL}${email}/messages/${emailIds.id}`,
-                    {
-                        headers: {
-                            Authorization: `Bearer ${accessToken}`,
-                            'Content-Type': 'application/json',
-                        },
-                    }
-                );
-                const emailMessage = emailMessageList.data;
-                const messageData = await getFilteredEmailMessages(emailMessage);
-
-                return {
-                    message: `id: ${emailMessage.id}, email:${email}, date: ${
-                        emailMessage.payload.headers.find(header => header.name === 'Date').value
-                    }, Subject: ${
-                        emailMessage.payload.headers.find(header => header.name === 'Subject')
-                            .value +
-                        ` -- ` +
-                        messageData
-                    }`,
-                };
-            })
+            filteredEmailIdList.map(async emailIds =>
+                getEmailMessageLists(email, accessToken, emailIds.id)
+            )
         );
 
         return messageObjects;
@@ -167,9 +205,11 @@ const buildJobApplicationDetails = async (
             }
 
             const jobApplication = await getJobApplicationDetails(messageObject.message);
+            logger.info(`ai api completed ${requestCounter}`);
             jobApplicationData.push(jobApplication);
             requestCounter++;
         }
+    
         await saveJobApplications(jobApplicationData);
         const jobApplicationStatusData = await getJobApplications(email);
         return jobApplicationStatusData;
@@ -178,4 +218,11 @@ const buildJobApplicationDetails = async (
     }
 };
 
-module.exports = { buildJobApplicationDetails };
+module.exports = {
+    refreshAccessToken,
+    getIdsFromApplications,
+    getEmailIds,
+    getEmailMessages,
+    buildJobApplicationDetails,
+    getEmailMessageLists,
+};

@@ -1,102 +1,75 @@
 openapi: 3.0.0
 info:
-  title: Authentication API's
+  title: Job Track API's
   version: 1.0.0
 servers:
-  - url: http://localhost:4000
+  - url: http://localhost:4001
     description: localhost server
 paths:
-  /api/auth/register:
+  /api/job/track:
     post:
-      summary: User Registration API
+      summary: Job Track API
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/RegistrationRequestBody'
-              type: object
-              properties:
-                user:
-                  type: object
-                  properties:
-                    firstname:
-                      type: string
-                      example: Mahesh
-                    lastname:
-                      example: Nidugala
-                    email:
-                      example: mahesh.nidugala@gmail.com
-                    password:
-                      example: example
-      responses:
-        '201':
-          description: CREATED
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RegistrationSuccessResponse'
-              example: { 'message': 'User Registered Successfully', 'username': 'Mahesh Nidugala' }
-        '400':
-          description: BAD REQUEST
-          content:
-            application/json:
-              example:
-                {
-                  'timestamp': '2024-01-17T02:40:35.512Z',
-                  'status': 400,
-                  'error': 'Bad Request',
-                  'message': 'Invalid Json Format or Request body missing',
-                  'path': '/api/auth/register',
-                }
-        '500':
-          description: INTERNAL SERVER ERROR
-          content:
-            application/json:
-              example:
-                {
-                  'timestamp': '2024-01-17T02:40:35.512Z',
-                  'status': 500,
-                  'error': 'Internal Server Error',
-                  'message': 'Some Error Message',
-                  'path': '/api/auth/register',
-                }
-  /api/auth/login:
-    post:
-      summary: User Login API
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/LoginRequestBody'
+              $ref: '#/components/schemas/JobTrackRequestBody'
               type: object
               properties:
                 email:
                   type: string
-                  example: mahesh.nidugala@gmail.com
-                password:
+                  example: ''
+                accessToken:
                   type: string
-                  example: example
+                  example: ''
+                expiryDate:
+                  type: string
+                  example: ''
+                refreshToken:
+                  type: string
+                  example: ''
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/LoginSuccessResponse'
-              example: { 'token': 'hkhjsjy536sjs78738989bjus98' }
+                $ref: '#/components/schemas/JobTrackSuccessResponse'
+              example:
+                [
+                  {
+                    'id': '18492dfa83f8bf38',
+                    'date': '2023-11-03T01:44:18.000Z',
+                    'company': 'BASF',
+                    'position': 'Internship Web Development',
+                    'status': 'Application Received',
+                    'email': 'mahesh.nidugala@gmail.com',
+                  },
+                  {
+                    'id': '18592df8eb643884ef',
+                    'date': '2023-11-03T01:41:18.000Z',
+                    'company': 'BASF',
+                    'position': 'Internship Web Development (m/f/d) at BASF SE',
+                    'status': 'Application received',
+                    'email': 'mahesh.nidugala@gmail.com',
+                  },
+                ]
         '400':
           description: BAD REQUEST
           content:
             application/json:
               example:
                 {
-                  'timestamp': '2024-01-17T02:40:35.512Z',
+                  'timestamp': '2024-01-29T17:31:22.228Z',
                   'status': 400,
                   'error': 'Bad Request',
-                  'message': 'Invalid Json Format or Request body missing',
-                  'path': '/api/auth/login',
+                  'message':
+                    [
+                      { 'msg': 'Invalid value', 'param': 'email', 'location': 'body' },
+                      { 'msg': 'Valid email is required.', 'param': 'email', 'location': 'body' },
+                    ],
+                  'path': '/api/job/track',
                 }
         '500':
           description: INTERNAL SERVER ERROR
@@ -108,40 +81,35 @@ paths:
                   'status': 500,
                   'error': 'Internal Server Error',
                   'message': 'Some Error Message',
-                  'path': '/api/auth/login',
+                  'path': '/api/job/track',
                 }
 components:
   schemas:
-    RegistrationRequestBody:
-      type: object
-      properties:
-        user:
-          type: object
-          properties:
-            firstname:
-              type: string
-            lastname:
-              type: string
-            email:
-              type: string
-            password:
-              type: string
-    RegistrationSuccessResponse:
-      type: object
-      properties:
-        message:
-          type: string
-        username:
-          type: string
-    LoginRequestBody:
+    JobTrackRequestBody:
       type: object
       properties:
         email:
           type: string
-        password:
+        accessToken:
           type: string
-    LoginSuccessResponse:
-      type: object
-      properties:
-        token:
+        expiryDate:
           type: string
+        refreshToken:
+          type: string
+    JobTrackSuccessResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: string
+          date:
+            type: string
+          company:
+            type: string
+          position:
+            type: string
+          status:
+            type: string
+          email:
+            type: string

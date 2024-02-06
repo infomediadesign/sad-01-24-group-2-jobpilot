@@ -3,5 +3,21 @@
 
 /Backend/online-auth-service/logs
 
+/Backend/online-ai-service/logs
+
+/Backend/online-job-service/logs
+
 /Backend/online-auth-service/tests/coverage
+
+/Backend/online-ai-service/tests/coverage
+
+/Backend/online-job-service/tests/coverage
+
 node_modules
+
+/Backend/online-auth-service/junit.xml
+
+/Backend/online-job-service/junit.xml
+
+/Backend/online-ai-service/junit.xml
+

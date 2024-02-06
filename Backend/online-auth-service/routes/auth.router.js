@@ -7,10 +7,21 @@ const {
     checkIsValidPassword,
 } = require('../services/auth.services');
 const { generateJwtToken } = require('../middleware/jwt.auth');
-const oAuth2Client = require('../middleware/google.auth');
+const { createOAuth2Client } = require('../middleware/google.auth');
 const { default: axios } = require('axios');
 
 const router = new Router();
+
+let oAuth2Client;
+
+(async () => {
+    try {
+        oAuth2Client = await createOAuth2Client();
+    } catch (err) {
+        logger.error('Error initializing OAuth2Client:', err);
+        process.exit(1);
+    }
+})();
 
 const validateRegisterRequiredFields = [
     body('user.firstname').notEmpty().withMessage('First name is required.'),
@@ -158,8 +169,12 @@ router.get('/google/callback', async (req, res) => {
         }
         res.cookie('access_token', tokens.access_token);
         res.cookie('expiry_date', tokens.expiry_date);
-        res.cookie('refresh_token', tokens.refresh_token);
-        res.send('Authentication successful!');
+        res.cookie('email', userInfo.data.email);
+        res.cookie('profile_picture', userInfo.data.picture);
+        res.cookie('firstname',userInfo.data.given_name);
+        res.cookie('lastname', userInfo.data.family_name);
+        res.redirect('http://localhost:3000/dashboard');
+        logger.info('Authentication successful!');
     } catch (err) {
         logger.error(err);
         return res.status(500).json({
