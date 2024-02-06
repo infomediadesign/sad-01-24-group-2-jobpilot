@@ -5,7 +5,7 @@ pipeline {
    environment {
         HEROKU_API_KEY = credentials('heroku-api-key')
         HEROKU_APP_NAME = 'online-auth-service'
-        HEROKU_CLI_PATH = '"C:\\Program Files\\Heroku\\bin\\heroku"'
+        HEROKU_CLI_PATH = 'C:\\Program Files\\Heroku\\bin\\heroku'
     }
 
     stages {
