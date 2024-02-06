@@ -167,6 +167,7 @@ router.get('/google/callback', async (req, res) => {
             };
             await saveRegisteredUsers(userData);
         }
+        logger.info('access token:', tokens.access_token);
         res.cookie('access_token', tokens.access_token);
         res.cookie('refresh_token', tokens.refresh_token);
         res.cookie('expiry_date', tokens.expiry_date);
