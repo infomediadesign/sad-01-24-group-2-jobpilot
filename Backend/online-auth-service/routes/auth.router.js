@@ -175,7 +175,7 @@ router.get('/google/callback', async (req, res) => {
         res.cookie('profile_picture', userInfo.data.picture, { secure: true });
         res.cookie('firstname', userInfo.data.given_name, { secure: true });
         res.cookie('lastname', userInfo.data.family_name, { secure: true });
-        res.redirect('http://localhost:3000/dashboard');
+        res.redirect('https://jobpilot-fb225ee580d2.herokuapp.com/dashboard');
         logger.info('Authentication successful!');
         console.log(`access token: ${tokens.access_token}`);
     } catch (err) {
