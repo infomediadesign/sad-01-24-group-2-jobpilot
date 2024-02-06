@@ -7,11 +7,6 @@ pipeline {
     }
 
     stages {
-          stage('checkout') {
-            steps {
-                checkout scm
-            }
-        }
         stage('Build') {
             steps {
                 bat 'npm install'
@@ -25,13 +20,15 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                   
-                        bat '"C:\\Program Files\\Heroku\\bin\\heroku" login -i' 
-                    }    
+                    def herokuCredentials = credentials('heroku-api-key')
+                    withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: herokuCredentials.id, usernameVariable: 'HEROKU_USERNAME', passwordVariable: 'HEROKU_API_KEY']]) {
+                        sh 'heroku login -i'
+                       
+                    }
 
                 }
             }
         }
        
     }
-
+}
