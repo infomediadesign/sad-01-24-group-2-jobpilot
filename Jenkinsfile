@@ -20,7 +20,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                     bat ' git remote add https://github.com/infomediadesign/sad-01-24-group-2-jobpilot.git'
+                     bat 'git remote add https://github.com/infomediadesign/sad-01-24-group-2-jobpilot.git'
                      bat 'git push origin online-auth-service-deployment'
                      
                 }
