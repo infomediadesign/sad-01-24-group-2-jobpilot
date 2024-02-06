@@ -21,8 +21,7 @@ pipeline {
             steps {
                 script {
                     withCredentials([string(credentialsId: 'heroku-api-key', variable: 'HEROKU_API_KEY')]) {
-                        def herokuCliPath= "C:\\Program Files\\heroku\\bin\\heroku"
-                        bat '${herokuCliPath} login -i'
+                       bat 'C:\\Program Files\\Heroku\\bin\\heroku version'
                     }
                 }
             }
