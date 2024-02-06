@@ -20,7 +20,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                     bat 'git fetch'
+                     bat 'git push origin online-auth-service-deployment'
                      
                 }
             }
