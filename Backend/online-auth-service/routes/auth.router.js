@@ -167,35 +167,43 @@ router.get('/google/callback', async (req, res) => {
             };
             await saveRegisteredUsers(userData);
         }
-        res.redirect('https://jobpilot-fb225ee580d2.herokuapp.com');
+
         res.cookie('access_token', tokens.access_token, {
             secure: true,
             domain: 'jobpilot-fb225ee580d2.herokuapp.com',
+            sameSite: 'none',
         });
         res.cookie('refresh_token', tokens.refresh_token, {
             secure: true,
             domain: 'jobpilot-fb225ee580d2.herokuapp.com',
+            sameSite: 'none',
         });
         res.cookie('expiry_date', tokens.expiry_date, {
             secure: true,
             domain: 'jobpilot-fb225ee580d2.herokuapp.com',
+            sameSite: 'none',
         });
         res.cookie('email', userInfo.data.email, {
             secure: true,
             domain: 'jobpilot-fb225ee580d2.herokuapp.com',
+            sameSite: 'none',
         });
         res.cookie('profile_picture', userInfo.data.picture, {
             secure: true,
             domain: 'jobpilot-fb225ee580d2.herokuapp.com',
+            sameSite: 'none',
         });
         res.cookie('firstname', userInfo.data.given_name, {
             secure: true,
             domain: 'jobpilot-fb225ee580d2.herokuapp.com',
+            sameSite: 'none',
         });
         res.cookie('lastname', userInfo.data.family_name, {
             secure: true,
             domain: 'jobpilot-fb225ee580d2.herokuapp.com',
+            sameSite: 'none',
         });
+        res.redirect('https://jobpilot-fb225ee580d2.herokuapp.com');
     } catch (err) {
         logger.error(err);
         return res.status(500).json({
