@@ -20,8 +20,10 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                     bat 'git push origin online-auth-service-deployment'
+                    bat 'git remote -v'
+                    bat 'git branch'
                      
+
                 }
             }
         }
