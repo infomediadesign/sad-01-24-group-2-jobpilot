@@ -20,11 +20,14 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    def herokuCredentials = credentials('heroku-api-key')
-                    withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: herokuCredentials.id, usernameVariable: 'HEROKU_USERNAME', passwordVariable: 'HEROKU_API_KEY']]) {
-                        sh 'heroku login -i'
-                       
+                    withCredentials([string(credentialsId: 'heroku-api-key', variable: 'HEROKU_API_KEY')]) {
+                        bat '"C:\\Program Files\\Heroku\\bin\\heroku" auth:token:set $HEROKU_API_KEY' 
+                        bat '"C:\\Program Files\\Heroku\\bin\\heroku" auth:whoami'
+                        bat '"C:\\Program Files\\Heroku\\bin\\heroku" git:remote -a online-auth-service'
+                        bat 'git push heroku online-auth-service-deployment:main'
+                      
                     }
+                     
 
                 }
             }
