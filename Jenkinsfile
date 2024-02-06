@@ -14,7 +14,14 @@ pipeline {
         }
         stage('Test') {
             steps {
-                bat 'npm run test'
+                script {
+                    bat 'npm run test'
+                }
+            }
+            post {
+                failure {
+                    error 'Tests failed, stopping pipeline'
+                }
             }
         }
         stage('Deploy') {
