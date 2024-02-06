@@ -2,9 +2,11 @@
 pipeline {
     agent any
    
+   environment {
+        HEROKU_API_KEY = credentials('heroku-api-key')
+    }
 
     stages {
-
         stage('Build') {
             steps {
                 bat 'npm install'
@@ -18,16 +20,17 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    
-                 def git = nodeGit 'origin'
-
-          // Checkout the online-auth-service-deployment branch
-          git.checkout branch: 'online-auth-service-deployment'
-
-          // Push to the remote with verbose output
-          git.push withMessage('Jenkins pipeline deployment', verbose: true)
+                    withCredentials([string(credentialsId: 'heroku-api-key', variable: 'HEROKU_API_KEY')]) {
+                        bat '"C:\\Program Files\\Heroku\\bin\\heroku" auth:token' 
+                        bat 'dir'
+                        bat '"C:\\Program Files\\Heroku\\bin\\heroku" auth:whoami'
+                        bat 'dir'
+                        bat '"C:\\Program Files\\Heroku\\bin\\heroku" git:remote -a online-auth-service'
+                          bat 'dir'
+                        bat 'git push origin online-auth-service-deployment'
+                          bat 'dir'
                       
-                    
+                    }
                      
 
                 }
