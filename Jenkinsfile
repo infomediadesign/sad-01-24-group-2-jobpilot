@@ -2,9 +2,10 @@
 pipeline {
     agent any
    
-     environment {
-        HEROKU_API_KEY = credentials('68c380ec-71da-4984-a54b-f3ca05802458')
+   environment {
+        HEROKU_API_KEY = credentials('heroku-api-key')
     }
+
     stages {
         stage('Build') {
             steps {
@@ -19,8 +20,10 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                       bat '"C:\\Program Files\\Heroku\\bin\\heroku" version' 
-                       bat '"C:\\Program Files\\Heroku\\bin\\heroku" login -i'           
+                    withCredentials([string(credentialsId: 'heroku-api-key', variable: 'HEROKU_API_KEY')]) {
+                       bat '"C:\\Program Files\\Heroku\\bin\\heroku"  auth:token:set $HEROKU_API_KEY' 
+                       bat '"C:\\Program Files\\Heroku\\bin\\heroku" auth:whoami'
+                    }
                 }
             }
         }
