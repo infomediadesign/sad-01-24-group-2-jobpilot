@@ -19,20 +19,13 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                script {
+                script {  
                     withCredentials([string(credentialsId: 'heroku-api-key', variable: 'HEROKU_API_KEY')]) {
-                        bat '"C:\\Program Files\\Heroku\\bin\\heroku" auth:token' 
-                        bat 'dir'
-                        bat '"C:\\Program Files\\Heroku\\bin\\heroku" auth:whoami'
-                        bat 'dir'
-                        bat '"C:\\Program Files\\Heroku\\bin\\heroku" git:remote -a online-auth-service'
-                          bat 'dir'
-                        bat 'git push origin online-auth-service-deployment'
-                          bat 'dir'
-                      
-                    }
-                     
-
+                    bat "echo $HEROKU_API_KEY | docker login -u _ --password-stdin registry.heroku.com"
+                    bat '"C:\\Program Files\\Heroku\\bin\\heroku" container:login'
+                    sh '"C:\\Program Files\\Heroku\\bin\\heroku" container:push web --app online-auth-service'
+                    sh '"C:\\Program Files\\Heroku\\bin\\heroku" container:release web --app online-auth-service'
+                }
                 }
             }
         }
