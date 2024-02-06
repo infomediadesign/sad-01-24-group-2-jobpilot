@@ -168,15 +168,15 @@ router.get('/google/callback', async (req, res) => {
             await saveRegisteredUsers(userData);
         }
 
-        res.cookie('access_token', tokens.access_token, { secure: true });
-        res.cookie('refresh_token', tokens.refresh_token, { secure: true });
-        res.cookie('expiry_date', tokens.expiry_date, { secure: true });
-        res.cookie('email', userInfo.data.email, { secure: true });
-        res.cookie('profile_picture', userInfo.data.picture, { secure: true });
-        res.cookie('firstname', userInfo.data.given_name, { secure: true });
-        res.cookie('lastname', userInfo.data.family_name, { secure: true });
+        await res.cookie('access_token', tokens.access_token, { secure: true });
+        await res.cookie('refresh_token', tokens.refresh_token, { secure: true });
+        await res.cookie('expiry_date', tokens.expiry_date, { secure: true });
+        await res.cookie('email', userInfo.data.email, { secure: true });
+        await res.cookie('profile_picture', userInfo.data.picture, { secure: true });
+        await res.cookie('firstname', userInfo.data.given_name, { secure: true });
+        await res.cookie('lastname', userInfo.data.family_name, { secure: true });
+        await res.redirect('https://jobpilot-fb225ee580d2.herokuapp.com/dashboard');
         logger.info('Authentication successful!');
-        res.send('Authentication successful!');
     } catch (err) {
         logger.error(err);
         return res.status(500).json({
@@ -197,10 +197,10 @@ router.post('/refresh/token', validateRefreshTokenFields, async (req, res) => {
             });
             logger.warn('Access Token Expired');
             const { tokens } = await oAuth2Client.refreshToken(req.body.refreshToken);
-            res.cookie('access_token', tokens.access_token, { secure: true });
-            res.cookie('expiry_date', tokens.expiry_date, { secure: true });
-            res.cookie('refresh_token', tokens.refresh_token, { secure: true });
-            res.send('Access Token refreshed');
+            await res.cookie('access_token', tokens.access_token, { secure: true });
+            await res.cookie('expiry_date', tokens.expiry_date, { secure: true });
+            await res.cookie('refresh_token', tokens.refresh_token, { secure: true });
+            await res.send('Access Token refreshed');
         } else {
             res.send('Access Token is valid');
         }
