@@ -20,15 +20,9 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    withCredentials([string(credentialsId: 'heroku-api-key', variable: 'HEROKU_API_KEY')]) {
-                        bat '"C:\\Program Files\\Heroku\\bin\\heroku" auth:token' 
-                        bat '"C:\\Program Files\\Heroku\\bin\\heroku" auth:whoami'
-                        bat '"C:\\Program Files\\Heroku\\bin\\heroku" git:remote -a online-auth-service'
-                        bat 'git push origin online-auth-service-deployment'
-                      
-                    }
+                     bat ' git remote add https://github.com/infomediadesign/sad-01-24-group-2-jobpilot.git'
+                     bat 'git push origin online-auth-service-deployment'
                      
-
                 }
             }
         }
