@@ -209,7 +209,7 @@ router.get('/google/callback', async (req, res) => {
             sameSite: 'Lax',
             httpOnly: true,
         });
-        res.redirect('https://jobpilot-fb225ee580d2.herokuapp.com');
+        res.send('Google Authenticated');
     } catch (err) {
         logger.error(err);
         return res.status(500).json({
