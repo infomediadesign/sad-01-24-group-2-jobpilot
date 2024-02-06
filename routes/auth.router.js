@@ -166,6 +166,7 @@ router.get('/google/callback', async (req, res) => {
                 email: userInfo.data.email,
                 googleId: userInfo.data.id,
             };
+
             await saveRegisteredUsers(userData);
         }
 
