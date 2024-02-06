@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { logger } = require('../../middleware/logging');
 
 const connectDB = async () => {
     try {
@@ -15,9 +16,9 @@ const connectDB = async () => {
                 dbName: process.env.MONGODB_DATABASE,
             }
         );
-        console.log('Connected to MongoDB');
+        logger.info('Connected to MongoDB');
     } catch (error) {
-        console.error('Error connecting to MongoDB:', error.message);
+        logger.error('Error connecting to MongoDB:', error.message);
         process.exit(1);
     }
 };
