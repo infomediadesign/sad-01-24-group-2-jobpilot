@@ -28,7 +28,7 @@ pipeline {
                         bat 'git branch'
                         bat 'git add .'
                         bat 'git commit -m "Automated deployment"'
-                        bat 'git push heroku online-auth-service-deployment:main'
+                        bat 'git push heroku HEAD:main'
                       
                     }
                      
