@@ -168,37 +168,15 @@ router.get('/google/callback', async (req, res) => {
             await saveRegisteredUsers(userData);
         }
 
-        res.cookie('access_token', tokens.access_token, {
-            secure: true,
-            domain: 'https://jobpilot-fb225ee580d2.herokuapp.com',
-        });
-        res.cookie('refresh_token', tokens.refresh_token, {
-            secure: true,
-            domain: 'https://jobpilot-fb225ee580d2.herokuapp.com',
-        });
-        res.cookie('expiry_date', tokens.expiry_date, {
-            secure: true,
-            domain: 'https://jobpilot-fb225ee580d2.herokuapp.com',
-        });
-        res.cookie('email', userInfo.data.email, {
-            secure: true,
-            domain: 'https://jobpilot-fb225ee580d2.herokuapp.com',
-        });
-        res.cookie('profile_picture', userInfo.data.picture, {
-            secure: true,
-            domain: 'https://jobpilot-fb225ee580d2.herokuapp.com',
-        });
-        res.cookie('firstname', userInfo.data.given_name, {
-            secure: true,
-            domain: 'https://jobpilot-fb225ee580d2.herokuapp.com',
-        });
-        res.cookie('lastname', userInfo.data.family_name, {
-            secure: true,
-            domain: 'https://jobpilot-fb225ee580d2.herokuapp.com',
-        });
-        res.redirect('https://jobpilot-fb225ee580d2.herokuapp.com/dashboard');
+        res.cookie('access_token', tokens.access_token, { secure: true });
+        res.cookie('refresh_token', tokens.refresh_token, { secure: true });
+        res.cookie('expiry_date', tokens.expiry_date, { secure: true });
+        res.cookie('email', userInfo.data.email, { secure: true });
+        res.cookie('profile_picture', userInfo.data.picture, { secure: true });
+        res.cookie('firstname', userInfo.data.given_name, { secure: true });
+        res.cookie('lastname', userInfo.data.family_name, { secure: true });
         logger.info('Authentication successful!');
-        console.log(`access token: ${tokens.access_token}`);
+        res.send('Authentication successful!');
     } catch (err) {
         logger.error(err);
         return res.status(500).json({
