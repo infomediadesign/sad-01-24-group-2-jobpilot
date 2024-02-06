@@ -15,6 +15,7 @@ const connectDB = async () => {
                 dbName: process.env.MONGODB_DATABASE,
             }
         );
+
         console.log('Connected to MongoDB');
     } catch (error) {
         console.error('Error connecting to MongoDB:', error.message);
