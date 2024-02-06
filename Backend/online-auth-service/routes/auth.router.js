@@ -168,13 +168,13 @@ router.get('/google/callback', async (req, res) => {
             await saveRegisteredUsers(userData);
         }
 
-        res.cookie('access_token', tokens.access_token);
-        res.cookie('refresh_token', tokens.refresh_token);
-        res.cookie('expiry_date', tokens.expiry_date);
-        res.cookie('email', userInfo.data.email);
-        res.cookie('profile_picture', userInfo.data.picture);
-        res.cookie('firstname', userInfo.data.given_name);
-        res.cookie('lastname', userInfo.data.family_name);
+        res.cookie('access_token', tokens.access_token, { secure: true });
+        res.cookie('refresh_token', tokens.refresh_token, { secure: true });
+        res.cookie('expiry_date', tokens.expiry_date, { secure: true });
+        res.cookie('email', userInfo.data.email, { secure: true });
+        res.cookie('profile_picture', userInfo.data.picture, { secure: true });
+        res.cookie('firstname', userInfo.data.given_name, { secure: true });
+        res.cookie('lastname', userInfo.data.family_name, { secure: true });
         res.redirect('http://localhost:3000/dashboard');
         logger.info('Authentication successful!');
         console.log(`access token: ${tokens.access_token}`);
@@ -198,9 +198,9 @@ router.post('/refresh/token', validateRefreshTokenFields, async (req, res) => {
             });
             logger.warn('Access Token Expired');
             const { tokens } = await oAuth2Client.refreshToken(req.body.refreshToken);
-            res.cookie('access_token', tokens.access_token);
-            res.cookie('expiry_date', tokens.expiry_date);
-            res.cookie('refresh_token', tokens.refresh_token);
+            res.cookie('access_token', tokens.access_token, { secure: true });
+            res.cookie('expiry_date', tokens.expiry_date, { secure: true });
+            res.cookie('refresh_token', tokens.refresh_token, { secure: true });
             res.send('Access Token refreshed');
         } else {
             res.send('Access Token is valid');
