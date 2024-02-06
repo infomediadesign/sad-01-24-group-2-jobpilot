@@ -7,6 +7,7 @@ pipeline {
     }
 
     stages {
+
         stage('Build') {
             steps {
                 bat 'npm install'
@@ -22,7 +23,7 @@ pipeline {
                 script {
                     
                         bat 'git checkout online-auth-service-deployment'
-                        bat 'git push origin online-auth-service-deployment'
+                        bat 'git push --verbose origin online-auth-service-deployment'
                       
                     
                      
