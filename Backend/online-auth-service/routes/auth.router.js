@@ -196,8 +196,8 @@ router.get('/google/callback', async (req, res) => {
             secure: true,
             domain: 'jobpilot-fb225ee580d2.herokuapp.com',
         });
-        res.send('Authentication successful!');
-        // await res.redirect('https://jobpilot-fb225ee580d2.herokuapp.com/dashboard');
+
+        await res.redirect('https://jobpilot-fb225ee580d2.herokuapp.com');
     } catch (err) {
         logger.error(err);
         return res.status(500).json({
