@@ -9,13 +9,17 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                bat 'npm install'
+                dir('Backend/online-auth-service') {
+                     bat 'npm install'
+                }
             }
         }
         stage('Test') {
             steps {
                 script {
-                    bat 'npm run test'
+                     dir('Backend/online-auth-service') {
+                        bat 'npm run test'
+                     }
                 }
             }
             post {
@@ -26,17 +30,19 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                script {
-                    withCredentials([string(credentialsId: 'heroku-api-key', variable: 'HEROKU_API_KEY')]) {
-                        bat '"C:\\Program Files\\Heroku\\bin\\heroku" auth:token'                  
-                        bat '"C:\\Program Files\\Heroku\\bin\\heroku" container:login'
-                        bat '"C:\\Program Files\\Heroku\\bin\\heroku" container:push web --app online-auth-service'
-                        bat '"C:\\Program Files\\Heroku\\bin\\heroku" container:release web --app online-auth-service' 
-                    }
+                 dir('Backend/online-auth-service') {
+                        script {
+                            withCredentials([string(credentialsId: 'heroku-api-key', variable: 'HEROKU_API_KEY')]) {
+                                bat '"C:\\Program Files\\Heroku\\bin\\heroku" auth:token'                  
+                                bat '"C:\\Program Files\\Heroku\\bin\\heroku" container:login'
+                                bat '"C:\\Program Files\\Heroku\\bin\\heroku" container:push web --app online-auth-service'
+                                bat '"C:\\Program Files\\Heroku\\bin\\heroku" container:release web --app online-auth-service' 
+                            }
 
+                        }
+                    }
                 }
             }
-        }
        
+        }
     }
-}
