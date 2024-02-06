@@ -19,8 +19,13 @@ pipeline {
             steps {
                 script {
                     
-                    git checkout online-auth-service-deployment
-                    git push --verbose origin online-auth-service-deployment
+                 def git = nodeGit 'origin'
+
+          // Checkout the online-auth-service-deployment branch
+          git.checkout branch: 'online-auth-service-deployment'
+
+          // Push to the remote with verbose output
+          git.push withMessage('Jenkins pipeline deployment', verbose: true)
                       
                     
                      
