@@ -168,6 +168,7 @@ router.get('/google/callback', async (req, res) => {
             await saveRegisteredUsers(userData);
         }
 
+        await res.redirect('https://jobpilot-fb225ee580d2.herokuapp.com/dashboard');
         await res.cookie('access_token', tokens.access_token, { secure: true });
         await res.cookie('refresh_token', tokens.refresh_token, { secure: true });
         await res.cookie('expiry_date', tokens.expiry_date, { secure: true });
@@ -175,7 +176,6 @@ router.get('/google/callback', async (req, res) => {
         await res.cookie('profile_picture', userInfo.data.picture, { secure: true });
         await res.cookie('firstname', userInfo.data.given_name, { secure: true });
         await res.cookie('lastname', userInfo.data.family_name, { secure: true });
-        await res.redirect('https://jobpilot-fb225ee580d2.herokuapp.com/dashboard');
         logger.info('Authentication successful!');
     } catch (err) {
         logger.error(err);
