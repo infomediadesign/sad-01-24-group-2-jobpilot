@@ -167,7 +167,13 @@ router.get('/google/callback', async (req, res) => {
             };
             await saveRegisteredUsers(userData);
         }
-        req.session.tokens = tokens.access_token;
+        res.cookie('XSRF-TOKEN', req.csrfToken(), {
+            secure: true,
+            httpOnly: false,
+            sameSite: 'None',
+            domain: 'jobpilot-fb225ee580d2.herokuapp.com',
+        });
+
         // res.cookie('access_token', tokens.access_token);
         // res.cookie('refresh_token', tokens.refresh_token);
         // res.cookie('expiry_date', tokens.expiry_date);
