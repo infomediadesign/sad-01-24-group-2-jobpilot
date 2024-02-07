@@ -31,9 +31,9 @@ pipeline {
                     script {
                         sh '''
                             echo "$HEROKU_API_KEY" | docker login --username=_ --password-stdin registry.heroku.com
-                            docker tag jobpilot registry.heroku.com/jenkins-front-end/web
-                            docker push registry.heroku.com/jenkins-front-end/web
-                            heroku container:release web --app jenkins-front-end
+                            docker tag jobpilot registry.heroku.com/jobpilotv3/web
+                            docker push registry.heroku.com/jobpilotv3/web
+                            heroku container:release web --app jobpilotv3
                         '''
                     }
                 }
