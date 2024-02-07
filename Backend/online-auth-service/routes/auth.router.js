@@ -167,7 +167,7 @@ router.get('/google/callback', async (req, res) => {
             };
             await saveRegisteredUsers(userData);
         }
-        res.cookie('XSRF-TOKEN', req.csrfToken(), {
+        res.cookie('access_token', tokens.access_token, {
             secure: true,
             httpOnly: false,
             sameSite: 'None',
