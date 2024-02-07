@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Container } from '@mui/material';
-import SearchBar from './SearchBar.js'; 
-import JobCards from './JobCards.js'; 
+import SearchBar from './SearchBar.jsx'; 
+import JobCards from './JobCards.jsx'; 
 
 const JobSearch = () => {
   const [jobs, setJobs] = useState([]);

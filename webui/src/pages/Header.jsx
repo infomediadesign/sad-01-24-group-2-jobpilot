@@ -1,8 +1,6 @@
 import React from 'react';
-import Avatar from '@mui/material/Avatar';
-import UserPopover from './UserPopover.js'; 
+import UserPopover from './UserPopover.jsx'; 
 import appLogo from '../assets/logoJobpilot.png'; // Adjust the path as needed
-import profilePic from '../assets/logoElement.png'; // Adjust the path as needed
 import '../styles/Header.css';
 
 const Header = ({ onSelection, currentPage }) => {

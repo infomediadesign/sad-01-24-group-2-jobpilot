@@ -6,7 +6,6 @@ import jobTracker from '../assets/jobTracker.png';
 import openAI from '../assets/openAI.png';
 
 
-
 const cardItems = [
   {
     id: 1,
@@ -78,7 +77,7 @@ function Login() {
 
   const loginwithgoogle = () => {
     console.log("about to open new window")
-    window.open("http://localhost:4000/api/auth/google", "_self")
+    window.open("https://online-auth-service-0b73a49cb2ea.herokuapp.com/api/auth/google", "_self")
   }
   return (
     <div className="appContainer">
