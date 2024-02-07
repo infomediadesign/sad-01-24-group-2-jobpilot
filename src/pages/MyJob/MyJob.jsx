@@ -80,7 +80,7 @@ export default function MyJob(props) {
             total={result.Applied}
             color="success"
             icon={
-              <FontAwesomeIcon icon={faEnvelopesBulk} size="4x" beat />}
+              <FontAwesomeIcon icon={faEnvelopesBulk} size="2x" />}
           />
         </Grid>
 
@@ -90,7 +90,7 @@ export default function MyJob(props) {
             total={result.InProgress}
             color="info"
             icon={
-              <FontAwesomeIcon icon={faListCheck} size="4x" flip />}
+              <FontAwesomeIcon icon={faListCheck} size="2x" flip />}
           />
         </Grid>
 
@@ -99,7 +99,7 @@ export default function MyJob(props) {
             title="Interviews Given"
             total={result.Interviews}
             color="warning"
-            icon={<FontAwesomeIcon icon={faCalendarCheck} size="4x" bounce />}
+            icon={<FontAwesomeIcon icon={faCalendarCheck} size="2x" bounce />}
           />
         </Grid>
 
@@ -108,7 +108,7 @@ export default function MyJob(props) {
             title="Rejection"
             total={result.Rejected}
             color="error"
-            icon={<FontAwesomeIcon icon={faCircleXmark} size="4x" beat />}
+            icon={<FontAwesomeIcon icon={faCircleXmark} size="2x" beat />}
           />
         </Grid>
 
