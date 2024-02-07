@@ -167,45 +167,14 @@ router.get('/google/callback', async (req, res) => {
             };
             await saveRegisteredUsers(userData);
         }
-        res.header('Access-Control-Allow-Origin', 'https://jobpilot-fb225ee580d2.herokuapp.com');
-        res.header('Access-Control-Allow-Credentials', true);
-        res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-        res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-
-        res.cookie('access_token', tokens.access_token, {
-            secure: true,
-            domain: 'jobpilot-fb225ee580d2.herokuapp.com',
-            sameSite: 'Lax',
-        });
-        res.cookie('refresh_token', tokens.refresh_token, {
-            secure: true,
-            domain: 'jobpilot-fb225ee580d2.herokuapp.com',
-            sameSite: 'Lax',
-        });
-        res.cookie('expiry_date', tokens.expiry_date, {
-            secure: true,
-            domain: 'jobpilot-fb225ee580d2.herokuapp.com',
-            sameSite: 'Lax',
-        });
-        res.cookie('email', userInfo.data.email, {
-            secure: true,
-            domain: 'jobpilot-fb225ee580d2.herokuapp.com',
-            sameSite: 'Lax',
-        });
-        res.cookie('profile_picture', userInfo.data.picture, {
-            secure: true,
-            domain: 'jobpilot-fb225ee580d2.herokuapp.com',
-            sameSite: 'Lax',
-        });
-        res.cookie('firstname', userInfo.data.given_name, {
-            secure: true,
-            domain: 'jobpilot-fb225ee580d2.herokuapp.com',
-        });
-        res.cookie('lastname', userInfo.data.family_name, {
-            secure: true,
-            domain: 'jobpilot-fb225ee580d2.herokuapp.com',
-            sameSite: 'Lax',
-        });
+        req.session.tokens = tokens.access_token;
+        // res.cookie('access_token', tokens.access_token);
+        // res.cookie('refresh_token', tokens.refresh_token);
+        // res.cookie('expiry_date', tokens.expiry_date);
+        // res.cookie('email', userInfo.data.email);
+        // res.cookie('profile_picture', userInfo.data.picture);
+        // res.cookie('firstname', userInfo.data.given_name);
+        // res.cookie('lastname', userInfo.data.family_name);
         res.redirect('https://jobpilot-fb225ee580d2.herokuapp.com');
     } catch (err) {
         logger.error(err);

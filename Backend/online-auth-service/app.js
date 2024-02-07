@@ -9,6 +9,15 @@ const app = express();
 
 app.use(cors());
 
+app.use(
+    session({
+        secret: 'your-secret-key', // Secret key used to sign the session ID cookie
+        resave: false, // Don't save session if unmodified
+        saveUninitialized: false, // Don't create session until something is stored
+        cookie: { secure: true }, // In production, set secure to true if using HTTPS
+    })
+);
+
 app.use(express.json(), (err, req, res, next) => {
     if (err instanceof SyntaxError && err.status === 400 && 'body' in err) {
         return res.status(400).send({
