@@ -5,8 +5,6 @@ import Card from '@mui/material/Card';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
-// ----------------------------------------------------------------------
-
 export default function AppWidgetSummary({ title, total, icon, color = 'primary', sx, ...other }) {
   return (
     <Card
@@ -25,7 +23,6 @@ export default function AppWidgetSummary({ title, total, icon, color = 'primary'
 
       <Stack spacing={0.5}>
         <Typography variant="h4">{total}</Typography>
-
         <Typography variant="subtitle2" sx={{ color: 'text.disabled' }}>
           {title}
         </Typography>

@@ -10,12 +10,8 @@ import TablePagination from '@mui/material/TablePagination';
 import TableNoData from './table-no-data';
 import UserTableRow from './user-table-row';
 import UserTableHead from './user-table-head';
-import TableEmptyRows from './table-empty-rows';
 import UserTableToolbar from './user-table-toolbar';
-import { emptyRows, applyFilter, getComparator } from './utils';
-
-// ----------------------------------------------------------------------
-
+import { applyFilter, getComparator } from './utils';
 
 const categorizeStatus = (status) => {
   const categories = {
@@ -50,33 +46,6 @@ export default function UserPage(props) {
     }
   };
 
-  const handleSelectAllClick = (event) => {
-    if (event.target.checked) {
-      const newSelecteds = myJobData.map((item) => item.company); 
-      setSelected(newSelecteds);
-      return;
-    }
-    setSelected([]);
-  };
-
-  const handleClick = (event, name) => {
-    const selectedIndex = selected.indexOf(name);
-    let newSelected = [];
-    if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, name);
-    } else if (selectedIndex === 0) {
-      newSelected = newSelected.concat(selected.slice(1));
-    } else if (selectedIndex === selected.length - 1) {
-      newSelected = newSelected.concat(selected.slice(0, -1));
-    } else if (selectedIndex > 0) {
-      newSelected = newSelected.concat(
-        selected.slice(0, selectedIndex),
-        selected.slice(selectedIndex + 1)
-      );
-    }
-    setSelected(newSelected);
-  };
-
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -109,54 +78,45 @@ export default function UserPage(props) {
 
   return (
     <Container>
-        <Card>
+      <Card>
         <UserTableToolbar
           numSelected={selected.length}
           filterName={filterName}
           onFilterName={handleFilterByName}
         />
-        
-        
-          <TableContainer sx={{ overflow: 'unset' }}>
-            <Table sx={{ minWidth: 200 }}>
-              <UserTableHead
-                order={order}
-                orderBy={orderBy}
-                rowCount={myJobData.length}
-                numSelected={selected.length}
-                onRequestSort={handleSort}
-                onSelectAllClick={handleSelectAllClick}
-                headLabel={[
-                  { id: 'position', label: 'Position' },
-                  { id: 'company', label: 'Company' },
-                  { id: 'date', label: 'Date', align: 'center' },
-                  { id: 'status', label: 'Status' },
-                ]}
-              />
-              <TableBody>
-                {dataFiltered
-                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                  .map((row) => (
-                    <UserTableRow
-                      key={row.id}
-                      position={row.position}
-                      company={row.company}
-                      date={row.date}
-                      status={row.status}
-                      handleClick={(event) => handleClick(event, row.name)}
-                    />
-                  ))}
 
-                <TableEmptyRows
-                  height={77}
-                  emptyRows={emptyRows(page, rowsPerPage, myJobData.length)}
-                />
+        <TableContainer sx={{ overflow: 'unset' }}>
+          <Table sx={{ minWidth: 200 }}>
+            <UserTableHead
+              order={order}
+              orderBy={orderBy}
+              rowCount={myJobData.length}
+              numSelected={selected.length}
+              onRequestSort={handleSort}
+              headLabel={[
+                { id: 'position', label: 'Position' },
+                { id: 'company', label: 'Company' },
+                { id: 'date', label: 'Date', align: 'center' },
+                { id: 'status', label: 'Status' },
+              ]}
+            />
+            <TableBody>
+              {dataFiltered
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row) => (
+                  <UserTableRow
+                    key={row.id}
+                    position={row.position}
+                    company={row.company}
+                    date={row.date}
+                    status={row.status}
+                  />
+                ))}
+              {notFound && <TableNoData query={filterName} />}
+            </TableBody>
+          </Table>
+        </TableContainer>
 
-                {notFound && <TableNoData query={filterName} />}
-              </TableBody>
-            </Table>
-          </TableContainer>
-        
         <TablePagination
           page={page}
           component="div"

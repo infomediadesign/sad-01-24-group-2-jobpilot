@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Box from '@mui/material/Box';
 import Avatar from '@mui/material/Avatar';
 import Divider from '@mui/material/Divider';
@@ -46,6 +46,12 @@ export default function UserPopover() {
 
   const handleLogout = () => {
     Cookies.remove('access_token');
+    Cookies.remove('email');
+    Cookies.remove('firstname');
+    Cookies.remove('lastname');
+    Cookies.remove('refresh_token');
+    //Cookies.remove('')
+    
     if(!Cookies.get('access_token')){
         navigate('/login');
     }
