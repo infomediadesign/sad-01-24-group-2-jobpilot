@@ -1,15 +1,11 @@
-import React, { useState } from 'react';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
-import AppWidgetSummary from './MyJobWidgetSummary.js';
-import AppCurrentVisits from './MyJobCurrentVisits.js';
-import MyJobView from './TableView/myjob-view.js';
-import bagIcon from '../../assets/icons/glass/ic_glass_bag.png';
+import AppWidgetSummary from './MyJobWidgetSummary.jsx';
+import AppCurrentVisits from './MyJobCurrentVisits.jsx';
+import MyJobView from './TableView/myjob-view.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendar, faCalendarCheck, faCircle, faCircleXmark, faEnvelopesBulk, faListCheck } from '@fortawesome/free-solid-svg-icons'
-
-
+import { faCalendarCheck, faCircleXmark, faEnvelopesBulk, faListCheck } from '@fortawesome/free-solid-svg-icons'
 
 const categorizeStatus = (status) => {
   const categories = {
@@ -77,8 +73,6 @@ export default function MyJob(props) {
       <Typography variant="h4" sx={{ mb: 5 }}>
       </Typography>
 
-
-
       <Grid container spacing={1}>
         <Grid xs={12} sm={6} md={3}>
           <AppWidgetSummary
@@ -86,7 +80,7 @@ export default function MyJob(props) {
             total={result.Applied}
             color="success"
             icon={
-             <FontAwesomeIcon icon={faEnvelopesBulk}  size="4x" beat/>}
+              <FontAwesomeIcon icon={faEnvelopesBulk} size="2x" />}
           />
         </Grid>
 
@@ -96,7 +90,7 @@ export default function MyJob(props) {
             total={result.InProgress}
             color="info"
             icon={
-              <FontAwesomeIcon icon={faListCheck} size="4x" flip />}
+              <FontAwesomeIcon icon={faListCheck} size="2x" flip />}
           />
         </Grid>
 
@@ -105,7 +99,7 @@ export default function MyJob(props) {
             title="Interviews Given"
             total={result.Interviews}
             color="warning"
-            icon={<FontAwesomeIcon icon={faCalendarCheck} size="4x" bounce />}
+            icon={<FontAwesomeIcon icon={faCalendarCheck} size="2x" bounce />}
           />
         </Grid>
 
@@ -114,7 +108,7 @@ export default function MyJob(props) {
             title="Rejection"
             total={result.Rejected}
             color="error"
-            icon={<FontAwesomeIcon icon={faCircleXmark} size="4x" beat />}
+            icon={<FontAwesomeIcon icon={faCircleXmark} size="2x" beat />}
           />
         </Grid>
 

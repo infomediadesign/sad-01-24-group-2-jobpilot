@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5074/api/ai";
+const API_URL = "https://online-ai-service-cb7e3d829d05.herokuapp.com/api/ai";
 
 export const sendMessageToAssistant = async (message) => {
   try {

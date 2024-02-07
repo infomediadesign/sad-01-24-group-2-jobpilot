@@ -1,9 +1,9 @@
-import { BASE_URL } from './endpoint';
+const JobTrackBaseUrl = "https://online-job-service-1996d957faed.herokuapp.com/"
 
 export const fetchMyJobData = async (data) => {
     try {
       console.log("data----------------------------->",data)
-      const response = await fetch(`${BASE_URL}/job/track`, {
+      const response = await fetch(`${JobTrackBaseUrl}api/job/track`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
