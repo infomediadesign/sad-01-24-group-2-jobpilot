@@ -149,7 +149,6 @@ router.get('/google', async (req, res) => {
 
 router.get('/google/callback', async (req, res) => {
     try {
-        res.setHeader('Access-Control-Allow-Credentials', true);
         const { code } = req.query;
         const { tokens } = await oAuth2Client.getToken(code);
         const userInfo = await axios.get(process.env.GOOGLE_USER_INFO_URL, {
@@ -169,16 +168,7 @@ router.get('/google/callback', async (req, res) => {
             await saveRegisteredUsers(userData);
         }
         res.cookie('token', tokens.access_token, {
-            // can only be accessed by server requests
-            httpOnly: true,
-            // path = where the cookie is valid
-            path: '/',
-            // secure = only send cookie over https
-            secure: true,
-            // sameSite = only send cookie if the request is coming from the same origin
-            sameSite: 'none', // "strict" | "lax" | "none" (secure must be true)
-            // maxAge = how long the cookie is valid for in milliseconds
-            maxAge: 3600000, // 1 hour
+            domain: 'jobpilot-fb225ee580d2.herokuapp.com',
         });
 
         // res.cookie('access_token', tokens.access_token);
@@ -188,7 +178,7 @@ router.get('/google/callback', async (req, res) => {
         // res.cookie('profile_picture', userInfo.data.picture);
         // res.cookie('firstname', userInfo.data.given_name);
         // res.cookie('lastname', userInfo.data.family_name);
-        res.redirect('http://localhost:3000/dashboard');
+        res.redirect('https://jobpilot-fb225ee580d2.herokuapp.com');
     } catch (err) {
         logger.error(err);
         return res.status(500).json({

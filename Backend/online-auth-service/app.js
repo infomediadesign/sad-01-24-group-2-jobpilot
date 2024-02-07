@@ -7,12 +7,7 @@ const session = require('express-session');
 const loadSwaggerSpec = require('./middleware/swagger');
 const app = express();
 
-app.use(
-    cors({
-        origin: 'http://localhost:3000/dashboard',
-        credentials: true,
-    })
-);
+app.use(cors());
 
 app.use(express.json(), (err, req, res, next) => {
     if (err instanceof SyntaxError && err.status === 400 && 'body' in err) {
