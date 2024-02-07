@@ -42,6 +42,7 @@
     "node-nlp": "^4.27.0",
     "passport": "^0.7.0",
     "passport-google-oauth2": "^0.2.0",
+    "query-string": "^8.2.0",
     "redis": "^4.2.0",
     "sequelize": "^6.21.2",
     "supertest": "^6.2.4",

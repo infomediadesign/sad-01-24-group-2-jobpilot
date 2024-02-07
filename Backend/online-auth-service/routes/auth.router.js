@@ -1,4 +1,5 @@
 const { Router } = require('express');
+const queryString = require('query-string');
 const { validationResult, body, query } = require('express-validator');
 const { logger } = require('../middleware/logging');
 const {
@@ -9,6 +10,7 @@ const {
 const { generateJwtToken } = require('../middleware/jwt.auth');
 const { createOAuth2Client } = require('../middleware/google.auth');
 const { default: axios } = require('axios');
+s;
 
 const router = new Router();
 
@@ -167,19 +169,18 @@ router.get('/google/callback', async (req, res) => {
             };
             await saveRegisteredUsers(userData);
         }
-        res.cookie('token', tokens.access_token, {
-            domain: 'jobpilot-fb225ee580d2.herokuapp.com',
-            path: '/login',
+        // Construct query parameters from cookies
+        const queryParams = queryString.stringify({
+            access_token: tokens.access_token,
+            refresh_token: tokens.refresh_token,
+            expiry_date: tokens.expiry_date,
+            email: userInfo.data.email,
+            profile_picture: userInfo.data.picture,
+            firstname: userInfo.data.given_name,
+            lastname: userInfo.data.family_name,
         });
-
-        // res.cookie('access_token', tokens.access_token);
-        // res.cookie('refresh_token', tokens.refresh_token);
-        // res.cookie('expiry_date', tokens.expiry_date);
-        // res.cookie('email', userInfo.data.email);
-        // res.cookie('profile_picture', userInfo.data.picture);
-        // res.cookie('firstname', userInfo.data.given_name);
-        // res.cookie('lastname', userInfo.data.family_name);
-        res.redirect('https://jobpilot-fb225ee580d2.herokuapp.com/login');
+        const redirectURL = 'https://jobpilot-fb225ee580d2.herokuapp.com/dashboard?' + queryParams;
+        res.redirect(redirectURL);
     } catch (err) {
         logger.error(err);
         return res.status(500).json({
