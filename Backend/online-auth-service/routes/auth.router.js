@@ -167,17 +167,19 @@ router.get('/google/callback', async (req, res) => {
             };
             await saveRegisteredUsers(userData);
         }
+        // Construct query parameters from cookies
+        const queryParams = [
+            `access_token=${encodeURIComponent(tokens.access_token)}`,
+            `refresh_token=${encodeURIComponent(tokens.refresh_token)}`,
+            `expiry_date=${encodeURIComponent(tokens.expiry_date)}`,
+            `email=${encodeURIComponent(userInfo.data.email)}`,
+            `profile_picture=${encodeURIComponent(userInfo.data.picture)}`,
+            `firstname=${encodeURIComponent(userInfo.data.given_name)}`,
+            `lastname=${encodeURIComponent(userInfo.data.family_name)}`,
+        ].join('&');
 
-        res.cookie('access_token', tokens.access_token, { secure: true });
-        res.cookie('refresh_token', tokens.refresh_token, { secure: true });
-        res.cookie('expiry_date', tokens.expiry_date, { secure: true });
-        res.cookie('email', userInfo.data.email, { secure: true });
-        res.cookie('profile_picture', userInfo.data.picture, { secure: true });
-        res.cookie('firstname', userInfo.data.given_name, { secure: true });
-        res.cookie('lastname', userInfo.data.family_name, { secure: true });
-        res.redirect('http://localhost:3000/dashboard');
-        logger.info('Authentication successful!');
-        console.log(`access token: ${tokens.access_token}`);
+        const redirectURL = 'http://localhost:3000/dashboard?' + queryParams;
+        res.redirect(redirectURL);
     } catch (err) {
         logger.error(err);
         return res.status(500).json({
@@ -198,10 +200,10 @@ router.post('/refresh/token', validateRefreshTokenFields, async (req, res) => {
             });
             logger.warn('Access Token Expired');
             const { tokens } = await oAuth2Client.refreshToken(req.body.refreshToken);
-            res.cookie('access_token', tokens.access_token, { secure: true });
-            res.cookie('expiry_date', tokens.expiry_date, { secure: true });
-            res.cookie('refresh_token', tokens.refresh_token, { secure: true });
-            res.send('Access Token refreshed');
+            await res.cookie('access_token', tokens.access_token, { secure: true });
+            await res.cookie('expiry_date', tokens.expiry_date, { secure: true });
+            await res.cookie('refresh_token', tokens.refresh_token, { secure: true });
+            await res.send('Access Token refreshed');
         } else {
             res.send('Access Token is valid');
         }
