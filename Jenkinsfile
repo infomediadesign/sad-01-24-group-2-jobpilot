@@ -17,6 +17,7 @@ pipeline {
              steps {
                  dir('webui') {
                      echo 'Building Frontend...'
+                     sh 'dir'
                      sh 'docker build -t jobpilot  .'
                  }
              }
