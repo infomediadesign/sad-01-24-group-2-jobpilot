@@ -1,38 +1,40 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
-import MyJob from '../../src/pages/MyJob/MyJob.js';
-import AssistantAI from '../pages/AssistantAI.js';
-import AboutUs from '../pages/AboutUs.js';
-import JobSearch from '../pages/Home/JobSearch.js';
-import Header from '../pages/Header.js';
-import UserPage from '../pages/UserPage.js';
-import Footer from '../pages/Footer.js';
+import MyJob from './MyJob/MyJob.jsx';
+import AssistantAI from './AssistantAI.jsx';
+import AboutUs from './AboutUs.jsx';
+import JobSearch from './Home/JobSearch.jsx';
+import Header from './Header.jsx';
+import Footer from './Footer.jsx';
 import '../styles/Dashboard.css';
 import Cookies from 'js-cookie';
 import Loading from '../components/loader/loading.jsx';
-import { fetchMyJobData } from '../apicalls/api.js';
-import { handleApiError } from '../apicalls/helpers.js';
+import { fetchMyJobData } from '../services/JobTracker.js';
+import { handleApiError } from '../services/helpers.js';
+import { useLocation } from 'react-router-dom';
+
 
 const Dashboard = () => {
+  const location = useLocation();
   const navigate = useNavigate(); // Create a history object
   const [selectedPage, setSelectedPage] = useState('Home');
   const [loading, setLoading] = useState(false);
   const [assistantMessages, setAssistantMessages] = useState([
     { type: 'ai', text: 'Hello! How can I assist you today?' }
   ]);
-  const [userData, setUserData] = useState({});
+ 
   const [myJobData, setMyJobData] = useState(null);
 
   useEffect(() => {
-    const email = Cookies.get('email');
+   // const queryParams = new URLSearchParams(location.search)
     const accessToken = Cookies.get('access_token');
-    const expiryDate = Cookies.get('expiry_date');
-    const refreshToken = Cookies.get('refresh_token');
-
-    setUserData({ email, accessToken, expiryDate, refreshToken });
-
+    const email =  Cookies.get('email');
+    const expiryDate =  Cookies.get('expiry_date');
+    const refreshToken =  Cookies.get('refresh_token');
+  
     if (email && accessToken) {
+      
       const fetchDataFromApi = async () => {
         try {
      
@@ -51,7 +53,7 @@ const Dashboard = () => {
       };
       fetchDataFromApi();
     }
-  }, [selectedPage, navigate]);
+  }, [selectedPage, navigate, location]);
 
   const handleSelection = (page) => {
     setSelectedPage(page);
