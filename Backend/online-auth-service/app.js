@@ -9,7 +9,7 @@ const app = express();
 
 app.use(
     cors({
-        origin: 'https://jobpilot-fb225ee580d2.herokuapp.com',
+        origin: 'http://localhost:3000/dashboard',
         credentials: true,
     })
 );
