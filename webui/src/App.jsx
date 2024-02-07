@@ -55,7 +55,7 @@ const AppContent = () => {
   return (
     <Routes>
       <Route path="/" element={<Login />} />
-      <Route path="/dashboard" element={paramsArray.length > 0 ? <Dashboard /> : <Navigate to="/login" />} /> {/* Render Dashboard component if access token present, otherwise navigate to login */}
+      <Route path="/dashboard" element={paramsArray.length > 0 ? <Dashboard /> : <Navigate to="/" />} /> {/* Render Dashboard component if access token present, otherwise navigate to login */}
     </Routes>
   );
 };
