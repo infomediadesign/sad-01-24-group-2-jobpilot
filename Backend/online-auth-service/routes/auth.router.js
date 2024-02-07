@@ -169,6 +169,7 @@ router.get('/google/callback', async (req, res) => {
         }
         res.cookie('token', tokens.access_token, {
             domain: 'jobpilot-fb225ee580d2.herokuapp.com',
+            path: '/login',
         });
 
         // res.cookie('access_token', tokens.access_token);
@@ -178,7 +179,7 @@ router.get('/google/callback', async (req, res) => {
         // res.cookie('profile_picture', userInfo.data.picture);
         // res.cookie('firstname', userInfo.data.given_name);
         // res.cookie('lastname', userInfo.data.family_name);
-        res.redirect('https://jobpilot-fb225ee580d2.herokuapp.com');
+        res.redirect('https://jobpilot-fb225ee580d2.herokuapp.com/login');
     } catch (err) {
         logger.error(err);
         return res.status(500).json({
