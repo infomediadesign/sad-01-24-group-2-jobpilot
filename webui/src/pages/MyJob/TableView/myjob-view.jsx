@@ -29,6 +29,15 @@ const categorizeStatus = (status) => {
   return "applied";
 };
 
+const formatDate = (dateString) => {
+  const date = new Date(dateString);
+  const day = date.getDate().toString().padStart(2, '0');
+  const month = (date.getMonth() + 1).toString().padStart(2, '0');
+  const year = date.getFullYear();
+  return `${day}-${month}-${year}`;
+};
+
+
 export default function UserPage(props) {
   const { myJobData } = props;
   const [page, setPage] = useState(0);
@@ -64,9 +73,10 @@ export default function UserPage(props) {
     id: item.id,
     position: item.position,
     company: item.company,
-    date: item.date,
+    date: formatDate(item.date),
     status: categorizeStatus(item.status), // Simplifying the status
   }));
+
 
   const dataFiltered = applyFilter({
     inputData: myJobUsers,
@@ -96,7 +106,7 @@ export default function UserPage(props) {
               headLabel={[
                 { id: 'position', label: 'Position' },
                 { id: 'company', label: 'Company' },
-                { id: 'date', label: 'Date', align: 'center' },
+                { id: 'date', label: 'Date'},
                 { id: 'status', label: 'Status' },
               ]}
             />
