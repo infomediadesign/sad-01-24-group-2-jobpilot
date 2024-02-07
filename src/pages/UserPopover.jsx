@@ -53,7 +53,7 @@ export default function UserPopover() {
     //Cookies.remove('')
     
     if(!Cookies.get('access_token')){
-        navigate('/login');
+        navigate('/');
     }
   }
 
