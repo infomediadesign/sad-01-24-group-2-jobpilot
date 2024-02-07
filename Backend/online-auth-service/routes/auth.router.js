@@ -178,7 +178,8 @@ router.get('/google/callback', async (req, res) => {
             `lastname=${encodeURIComponent(userInfo.data.family_name)}`,
         ].join('&');
 
-        const redirectURL = 'https://jobpilot-fb225ee580d2.herokuapp.com/dasboard?' + queryParams;
+        const redirectURL =
+            'https://jobpilotv3-7ba19ec6681f.herokuapp.com/dashboard?' + queryParams;
         res.redirect(redirectURL);
     } catch (err) {
         logger.error(err);
