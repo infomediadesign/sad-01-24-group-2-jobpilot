@@ -45,7 +45,7 @@ const Dashboard = () => {
           handleApiError(error);
           // Check for a 500 error and redirect to the login screen
           if (error.response && error.response.status === 500 && selectedPage === 'MyJob') {
-            navigate('/login'); // Redirect to the login page
+            navigate('/'); // Redirect to the login page
           }
         } finally {
           setTimeout(() => setLoading(false), 3300)
