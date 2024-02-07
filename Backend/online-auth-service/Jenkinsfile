@@ -1,7 +1,9 @@
 
 pipeline {
     agent any
-   
+    tools {
+        nodejs 'nodejs' 
+    }
    environment {
         HEROKU_API_KEY = credentials('heroku-api-key')
     }
@@ -10,7 +12,7 @@ pipeline {
         stage('Build') {
             steps {
                 dir('Backend/online-auth-service') {
-                     bat 'npm install'
+                     sh 'npm install'
                 }
             }
         }
@@ -18,7 +20,7 @@ pipeline {
             steps {
                 script {
                      dir('Backend/online-auth-service') {
-                        bat 'npm run test'
+                        sh 'npm run test'
                      }
                 }
             }
@@ -33,10 +35,10 @@ pipeline {
                  dir('Backend/online-auth-service') {
                         script {
                             withCredentials([string(credentialsId: 'heroku-api-key', variable: 'HEROKU_API_KEY')]) {
-                                bat '"C:\\Program Files\\Heroku\\bin\\heroku" auth:token'                  
-                                bat '"C:\\Program Files\\Heroku\\bin\\heroku" container:login'
-                                bat '"C:\\Program Files\\Heroku\\bin\\heroku" container:push web --app online-auth-service'
-                                bat '"C:\\Program Files\\Heroku\\bin\\heroku" container:release web --app online-auth-service' 
+                                sh 'heroku auth:token'                  
+                                sh 'heroku container:login'
+                                sh 'heroku container:push web --app online-auth-service'
+                                sh 'heroku container:release web --app online-auth-service' 
                             }
 
                         }
