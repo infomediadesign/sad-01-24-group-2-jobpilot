@@ -178,7 +178,7 @@ router.get('/google/callback', async (req, res) => {
             `lastname=${encodeURIComponent(userInfo.data.family_name)}`,
         ].join('&');
 
-        const redirectURL = 'http://localhost:3000/dashboard?' + queryParams;
+        const redirectURL = 'https://jobpilot-fb225ee580d2.herokuapp.com/dasboard?' + queryParams;
         res.redirect(redirectURL);
     } catch (err) {
         logger.error(err);
