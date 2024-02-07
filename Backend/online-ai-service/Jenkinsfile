@@ -10,7 +10,7 @@ pipeline {
         stage('Build') {
             steps {
                 dir('Backend/online-ai-service') {
-                     bat 'npm install'
+                     sh 'npm install'
                 }
             }
         }
@@ -18,7 +18,7 @@ pipeline {
             steps {
                 script {
                      dir('Backend/online-ai-service') {
-                        bat 'npm run test'
+                        sh 'npm run test'
                      }
                 }
             }
@@ -33,10 +33,10 @@ pipeline {
                  dir('Backend/online-ai-service') {
                         script {
                             withCredentials([string(credentialsId: 'heroku-api-key', variable: 'HEROKU_API_KEY')]) {
-                                bat '"C:\\Program Files\\Heroku\\bin\\heroku" auth:token'                  
-                                bat '"C:\\Program Files\\Heroku\\bin\\heroku" container:login'
-                                bat '"C:\\Program Files\\Heroku\\bin\\heroku" container:push web --app online-ai-service'
-                                bat '"C:\\Program Files\\Heroku\\bin\\heroku" container:release web --app online-ai-service' 
+                                sh 'heroku auth:token'                  
+                                sh 'heroku container:login'
+                                sh 'heroku container:push web --app online-ai-service'
+                                sh 'heroku container:release web --app online-ai-service' 
                             }
 
                         }
