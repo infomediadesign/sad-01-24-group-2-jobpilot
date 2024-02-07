@@ -7,14 +7,10 @@ const session = require('express-session');
 const loadSwaggerSpec = require('./middleware/swagger');
 const app = express();
 
-app.use(cors());
-
 app.use(
-    session({
-        secret: 'your-secret-key', // Secret key used to sign the session ID cookie
-        resave: false, // Don't save session if unmodified
-        saveUninitialized: false, // Don't create session until something is stored
-        cookie: { secure: true }, // In production, set secure to true if using HTTPS
+    cors({
+        origin: 'https://jobpilot-fb225ee580d2.herokuapp.com',
+        credentials: true,
     })
 );
 
