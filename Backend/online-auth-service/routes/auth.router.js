@@ -149,6 +149,7 @@ router.get('/google', async (req, res) => {
 
 router.get('/google/callback', async (req, res) => {
     try {
+        res.setHeader('Access-Control-Allow-Credentials', true);
         const { code } = req.query;
         const { tokens } = await oAuth2Client.getToken(code);
         const userInfo = await axios.get(process.env.GOOGLE_USER_INFO_URL, {
