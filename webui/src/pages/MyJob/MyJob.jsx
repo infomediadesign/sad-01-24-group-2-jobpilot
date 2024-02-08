@@ -80,7 +80,7 @@ export default function MyJob(props) {
             total={result.Applied}
             color="success"
             icon={
-              <FontAwesomeIcon icon={faEnvelopesBulk} size="2x" />}
+              <FontAwesomeIcon icon={faEnvelopesBulk} size="2x" beat />}
           />
         </Grid>
 
